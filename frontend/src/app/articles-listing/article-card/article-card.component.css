@@ -1,0 +1,72 @@
+.card {
+  font-family: 'Maven Pro', sans-serif;
+  border-radius: 20px;
+  margin: 20px auto;
+  padding: 0 0 15px 0;
+  -webkit-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+  box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+  max-width: 600px;
+  transition-duration: 0.3s;
+}
+
+.card:hover{
+  transform: scale(1.02);
+}
+
+.container {
+  position: relative;
+}
+
+.container .newsSite {
+  font-size: clamp(1rem, 3vw, 2rem);
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: white;
+
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  /*border: 1px solid red;*/
+  padding: 30px 0 5px 10px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 74%);
+}
+
+.container img {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+.card > *:not(.container) {
+  margin: 0 10px !important;
+}
+
+.card .date {
+  /*font-family: sans-serif;*/
+  letter-spacing: 1px;
+  color: #007bff;
+  font-size: clamp(0.7rem, 3vw, 1rem);
+  font-weight: bold;
+}
+
+.card .title {
+  font-weight: bold;
+  padding: 15px 0;
+}
+
+.card .summary {
+  font-size: 0.7rem;
+  color: #989898;
+}
+
+.toggleFavorite {
+  border: 1px solid black;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white; /*temp*/
+}
+

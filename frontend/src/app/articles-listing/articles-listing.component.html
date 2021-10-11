@@ -1,1 +1,5 @@
-<p>articles-listing works!</p>
+<ng-container *ngIf="articles | async as articles">
+  <div>
+    <app-article-card *ngFor="let article of articles"  [article]="article"></app-article-card>
+  </div>
+</ng-container>
