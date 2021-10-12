@@ -15,6 +15,18 @@ export class ArticlesListingComponent implements OnInit, AfterViewInit {
 
   constructor(private articlesService: ArticlesService) {
     this.articles = articlesService.articles;
+    articlesService.articles.subscribe({
+      next: (value:Article[]) => this.isContentReadyToShow = true,
+    })
+  }
+
+  public refreshListOfArticles(){
+    this.isContentReadyToShow = false;
+    this.articlesService.getArticles();
+  }
+
+  public showFavoritesArticles(){
+    this.articlesService.getFavoriteArticles();
   }
 
   ngOnInit(): void {

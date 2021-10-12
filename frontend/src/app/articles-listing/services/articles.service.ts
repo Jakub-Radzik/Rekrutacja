@@ -27,6 +27,12 @@ export class ArticlesService {
     })
   }
 
+  public getFavoriteArticles():void{
+    this.articlesDataService.getFavoritesArticles(this.favoriteArticlesIDs.getValue()).subscribe(response => {
+      this.articles.next(response);
+    })
+  }
+
   public getArticle(articleId: number): Observable<Article>{
     return this.articlesDataService.getArticleById(articleId);
   }

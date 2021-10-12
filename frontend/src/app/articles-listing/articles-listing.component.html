@@ -1,3 +1,7 @@
+
+<div class="refresh" (click)="refreshListOfArticles()">REFRESH ARTICLES</div>
+<div class="favorites" (click)="showFavoritesArticles()">FAVORITES</div>
+
 <app-loader *ngIf="!isContentReadyToShow"></app-loader>
 
 <ng-container *ngIf="articles | async as articles">

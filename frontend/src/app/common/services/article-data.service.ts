@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {Article} from "../interfaces/article";
 import {Observable} from "rxjs";
@@ -10,11 +10,20 @@ import {Observable} from "rxjs";
 export class ArticleDataService {
 
   constructor(private httpClient: HttpClient) {
-    console.log(environment.apiUrl)
   }
 
   public getArticles():Observable<Article[]> {
     return this.httpClient.get<Article[]>(`${environment.apiUrl}/articles`);
+  }
+
+  public getFavoritesArticles(favoriteArticlesIDs: number[]):Observable<Article[]> {
+    let params = new HttpParams();
+
+    favoriteArticlesIDs.forEach(id =>{
+      params = params.append('id_in', id);
+    })
+
+    return this.httpClient.get<Article[]>(`${environment.apiUrl}/articles`, {params: params});
   }
 
   public getArticleById(id: number): Observable<Article>{
