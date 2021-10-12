@@ -1,0 +1,23 @@
+.heart{
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  transition-duration: 0.3s;
+}
+
+.basic{
+  color: rgba(133, 133, 133, 0.38);
+}
+
+.basic:hover{
+  color: rgba(222, 59, 59, 0.62);
+}
+
+.favorite{
+  transform: scale(1.4);
+  color: red;
+}
+
+.favorite:hover{
+  color: rgba(246, 77, 77, 0.62);
+}

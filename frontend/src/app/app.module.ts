@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ArticleListingModule} from "./articles-listing/article-listing.module";
 import {CommonModule} from "./common/common.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {CommonModule} from "./common/common.module";
     BrowserModule,
     HttpClientModule,
     ArticleListingModule,
-    CommonModule
+    CommonModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
