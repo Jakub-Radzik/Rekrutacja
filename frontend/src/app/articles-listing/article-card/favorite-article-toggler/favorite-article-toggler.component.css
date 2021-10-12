@@ -5,6 +5,10 @@
   transition-duration: 0.3s;
 }
 
+.heart:hover{
+  cursor: pointer;
+}
+
 .basic{
   color: rgba(133, 133, 133, 0.38);
 }
@@ -19,5 +23,5 @@
 }
 
 .favorite:hover{
-  color: rgba(246, 77, 77, 0.62);
+  color: rgba(246, 77, 77, 0.69);
 }

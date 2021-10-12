@@ -1,9 +1,7 @@
 <div class="card">
   <div class="container">
     <img src="{{article.imageUrl}}" alt="image">
-    <div class="toggleFavorite">
-      Add/remove
-    </div>
+    <app-favorite-article-toggler [articleId]="article.id"></app-favorite-article-toggler>
     <div class="newsSite">{{article.newsSite}}</div>
   </div>
   <div class="date">
@@ -14,7 +12,6 @@
 
   <div class="title">{{article.title}}</div>
   <p class="summary">{{article.summary}}</p>
-
 
   <!--  <p>{{article.id}}</p>-->
   <!--  <p>{{article.url}}</p>-->
