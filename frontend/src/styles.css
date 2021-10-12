@@ -10,8 +10,10 @@
 
 html[data-theme='light'] {
   --header-bg: #007bff;
+  --switch-color: #180808;
 }
 
 html[data-theme='dark'] {
   --header-bg: #013672;
+  --switch-color: #f6f6f6;
 }

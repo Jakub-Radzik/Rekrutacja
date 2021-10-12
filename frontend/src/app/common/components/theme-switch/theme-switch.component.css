@@ -1,0 +1,4 @@
+.switch{
+  color:var(--switch-color);
+  transition-duration: 0.3s;
+}
