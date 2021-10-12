@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ArticlesService} from "./services/articles.service";
 import {Observable} from "rxjs";
 import {Article} from "../common/interfaces/article";
@@ -8,9 +8,10 @@ import {Article} from "../common/interfaces/article";
   templateUrl: './articles-listing.component.html',
   styleUrls: ['./articles-listing.component.css']
 })
-export class ArticlesListingComponent implements OnInit {
+export class ArticlesListingComponent implements OnInit, AfterViewInit {
 
   public articles: Observable<Article[]>;
+  public isContentReadyToShow = false;
 
   constructor(private articlesService: ArticlesService) {
     this.articles = articlesService.articles;
@@ -18,7 +19,9 @@ export class ArticlesListingComponent implements OnInit {
 
   ngOnInit(): void {
     this.articlesService.getArticles();
-    console.dir(this.articles);
   }
 
+  ngAfterViewInit(): void {
+    this.isContentReadyToShow = true;
+  }
 }

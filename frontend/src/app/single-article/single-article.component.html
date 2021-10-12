@@ -1,0 +1,30 @@
+
+<app-loader *ngIf="!article && !isContentReadyToShow"></app-loader>
+<!--<app-loader *ngIf="true"></app-loader>-->
+
+<div class="article" *ngIf="article && isContentReadyToShow">
+
+  <div class="container">
+    <div class="imgBar">
+      <div>
+        {{date.getFullYear()}}
+        {{date.toLocaleString('en-EN', {month: 'long'}).toUpperCase()}}
+        {{date.toLocaleString('en-EN', {day: '2-digit'})}}
+      </div>
+      <div>
+        {{date.getHours()}}:{{date.getMinutes()<10? '0'+date.getMinutes() : date.getMinutes()}}
+      </div>
+    </div>
+    <img src="{{article.imageUrl}}" alt="image">
+    <app-favorite-article-toggler [articleId]="article.id"></app-favorite-article-toggler>
+  </div>
+
+  <div class="title">{{article.title}}</div>
+
+  <div class="summary">{{article.summary}}</div>
+
+  <a href="{{article.url}}">
+    Read more at: {{article.newsSite}}
+  </a>
+</div>
+

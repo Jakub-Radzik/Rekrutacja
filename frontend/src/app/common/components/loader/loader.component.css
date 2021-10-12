@@ -1,0 +1,42 @@
+@keyframes spin {
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+#wrapper{
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#box1{
+  animation: spin 2s infinite linear;
+  width: 200px;
+  height: 200px;
+  border: 10px solid transparent;
+  border-left: 10px dashed #00e1ff;
+  border-top: 10px solid #00e1ff;
+  border-radius: 100%;
+}
+
+#box2{
+  animation: spin 1s infinite linear reverse;
+  width: 180px;
+  height: 180px;
+  border: 10px solid transparent;
+  border-left: 10px solid blue;
+  border-top: 10px dashed blue;
+  border-radius: 100%;
+}
+
+#box3{
+  animation: spin 0.5s infinite linear;
+  width: 160px;
+  height: 160px;
+  border: 10px solid transparent;
+  border-left: 10px dashed #555598;
+  border-top: 10px solid #555598;
+  border-radius: 100%;
+}

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ArticleDataService} from "../../common/services/article-data.service";
 import {Article} from "../../common/interfaces/article";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,10 @@ export class ArticlesService {
     this.articlesDataService.getArticles().subscribe(response => {
       this.articles.next(response);
     })
+  }
+
+  public getArticle(articleId: number): Observable<Article>{
+    return this.articlesDataService.getArticleById(articleId);
   }
 
   public addArticleToFavorites(articleId: number): void {

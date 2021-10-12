@@ -18,7 +18,7 @@ export class ArticleDataService {
   }
 
   public getArticleById(id: number): Observable<Article>{
-    return this.httpClient.get<Article>(`${environment.apiUrl}/article/${id}`);
+    return this.httpClient.get<Article>(`${environment.apiUrl}/articles/${id}`);
   }
 
   public getArticlesCount():Observable<number> {
