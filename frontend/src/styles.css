@@ -7,3 +7,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html[data-theme='light'] {
+  --header-bg: #007bff;
+}
+
+html[data-theme='dark'] {
+  --header-bg: #013672;
+}
