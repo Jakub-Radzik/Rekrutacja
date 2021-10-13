@@ -17,3 +17,8 @@ html[data-theme='dark'] {
   --header-bg: #013672;
   --switch-color: #f6f6f6;
 }
+
+/*GLOBAL CLASSES)*/
+.favoriteButton{
+  color: red;
+}

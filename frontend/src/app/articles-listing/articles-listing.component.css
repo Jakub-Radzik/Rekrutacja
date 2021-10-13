@@ -1,0 +1,38 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20vh auto;
+  grid-template-areas:
+    "tools"
+    "listing";
+  max-width: 1024px;
+  margin: auto;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 40vh 40vh 20vh;
+    grid-template-areas:
+    "tools listing"
+    "tools listing"
+    ". listing";
+  }
+}
+
+.tools {
+  background: #723f3f;
+  grid-area: tools;
+  max-height: 1024px;
+  margin: 20px 0 0 10px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+  box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+}
+
+.listing {
+  grid-area: listing;
+  max-height: 1524px;
+  overflow: scroll;
+}

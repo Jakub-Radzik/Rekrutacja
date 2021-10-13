@@ -19,6 +19,7 @@
   border-left: 10px dashed #00e1ff;
   border-top: 10px solid #00e1ff;
   border-radius: 100%;
+  z-index: 100;
 }
 
 #box2{

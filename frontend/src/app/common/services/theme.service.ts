@@ -6,7 +6,6 @@ import {DARK, LIGHT, THEME_LOCAL_STORAGE_KEY} from "../utils/names";
   providedIn: 'root'
 })
 export class ThemeService {
-
   private theme;
   private icon;
 

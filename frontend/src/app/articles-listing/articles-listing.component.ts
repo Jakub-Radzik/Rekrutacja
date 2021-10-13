@@ -1,8 +1,9 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ArticlesService} from "./services/articles.service";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {Article} from "../common/interfaces/article";
 import {FavoriteArticlesService} from "./services/favorite-articles.service";
+import { faHeart, faDownload} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-articles-listing',
@@ -11,27 +12,33 @@ import {FavoriteArticlesService} from "./services/favorite-articles.service";
 })
 export class ArticlesListingComponent implements OnInit, AfterViewInit {
 
+  public faDownload = faDownload;
+  public faHeart = faHeart;
+
   public articles: Observable<Article[]>;
-  public isContentReadyToShow = false;
+  public isContentReadyToShow = new BehaviorSubject<boolean>(false);
 
   constructor(private articlesService: ArticlesService, private favoriteArticlesService: FavoriteArticlesService) {
     this.articles = articlesService.articles;
 
     articlesService.articles.subscribe({
-      next: (value:Article[]) => this.isContentReadyToShow = true,
+      next: (value:Article[]) => this.isContentReadyToShow.next(true),
     })
 
     favoriteArticlesService.favoriteArticles.subscribe({
-      next: (value:Article[]) => this.isContentReadyToShow = true,
+      next: (value:Article[]) => this.isContentReadyToShow.next(true),
     })
+    this.isContentReadyToShow.next(false);
   }
 
   public refreshListOfArticles(){
-    this.isContentReadyToShow = false;
+    this.isContentReadyToShow.next(false);
     this.articlesService.getArticles();
+    this.articles = this.articlesService.articles;
   }
 
   public showFavoritesArticles(){
+    this.isContentReadyToShow.next(false);
     this.favoriteArticlesService.getFavoriteArticles();
     this.articles = this.favoriteArticlesService.favoriteArticles;
   }
@@ -41,6 +48,6 @@ export class ArticlesListingComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.isContentReadyToShow = true;
+    // this.isContentReadyToShow.next(true);
   }
 }
