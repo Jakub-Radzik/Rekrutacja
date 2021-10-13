@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" [routerLink]="['/articles',article.id]">
   <div class="container">
     <img src="{{article.imageUrl}}" alt="image">
     <app-favorite-article-toggler [articleId]="article.id"></app-favorite-article-toggler>
