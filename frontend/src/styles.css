@@ -66,6 +66,10 @@ html[data-theme='dark'] {
   color: var(--font2);
 }
 
+.backHomeButton{
+  color: var(--font);
+}
+
 /*SCROLL STYLE*/
 
 /* width */

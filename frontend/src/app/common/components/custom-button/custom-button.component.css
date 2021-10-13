@@ -12,6 +12,7 @@ div {
   margin: 0 0 5px 0;
   transition-duration: 0.3s;
   background: #a6a2be;
+  /*  TODO:COLOR*/
   cursor: pointer;
   /*width: 80%;*/
   background: var(--body3);
@@ -19,6 +20,7 @@ div {
 
 div:hover{
   padding-right: 20px;
+  background: var(--add);
 }
 
 div > *:first-child{

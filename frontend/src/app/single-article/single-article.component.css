@@ -11,6 +11,7 @@
   width: 100%;
   padding: 10px 10px 40px 10px;
   color: #fff;
+  /*  TODO:COLOR*/
   background: rgba(0, 0, 0, 0.24);
   background: linear-gradient(180deg, rgba(0,0,0,0.8) 10%, rgba(0,0,0,0) 100%);
   letter-spacing: 2px;

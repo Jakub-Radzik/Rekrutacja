@@ -23,4 +23,8 @@ export class ArticlesService {
   public getArticle(articleId: number): Observable<Article> {
     return this.articlesDataService.getArticleById(articleId);
   }
+
+  public getArticlesCount():Observable<number>{
+    return this.articlesDataService.getArticlesCount();
+  }
 }

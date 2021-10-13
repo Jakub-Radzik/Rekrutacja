@@ -17,9 +17,11 @@ export class ArticlesListingComponent implements OnInit, AfterViewInit {
 
   public articles: Observable<Article[]>;
   public isContentReadyToShow = new BehaviorSubject<boolean>(false);
+  public articlesCount: Observable<number>;
 
   constructor(private articlesService: ArticlesService, private favoriteArticlesService: FavoriteArticlesService) {
     this.articles = articlesService.articles;
+    this.articlesCount = articlesService.getArticlesCount();
 
     articlesService.articles.subscribe({
       next: (value:Article[]) => this.isContentReadyToShow.next(true),

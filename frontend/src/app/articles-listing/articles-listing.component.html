@@ -1,5 +1,6 @@
 <div class="content">
   <div class="tools">
+    <div class="counter">Available articles: {{articlesCount | async}}</div>
     <app-custom-button [customClass]="'refreshButton'" [icon]="faDownload" [text]="'newest articles'"
                        (callback)="refreshListOfArticles()"></app-custom-button>
     <app-custom-button [customClass]="'favoriteButton'"  [icon]="faHeart" [text]="'favorites'"
