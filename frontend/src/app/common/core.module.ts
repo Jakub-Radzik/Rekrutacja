@@ -4,6 +4,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {CommonModule} from "@angular/common";
 
 
 @NgModule({
@@ -13,9 +14,10 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     LoaderComponent,
     ThemeSwitchComponent
   ],
-  imports: [
-    FontAwesomeModule
-  ],
+    imports: [
+        FontAwesomeModule,
+        CommonModule
+    ],
   exports: [
     HeaderComponent,
     FooterComponent,

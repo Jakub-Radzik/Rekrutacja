@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ArticlesService} from "./services/articles.service";
 import {Observable} from "rxjs";
 import {Article} from "../common/interfaces/article";
+import {FavoriteArticlesService} from "./services/favorite-articles.service";
 
 @Component({
   selector: 'app-articles-listing',
@@ -13,9 +14,14 @@ export class ArticlesListingComponent implements OnInit, AfterViewInit {
   public articles: Observable<Article[]>;
   public isContentReadyToShow = false;
 
-  constructor(private articlesService: ArticlesService) {
+  constructor(private articlesService: ArticlesService, private favoriteArticlesService: FavoriteArticlesService) {
     this.articles = articlesService.articles;
+
     articlesService.articles.subscribe({
+      next: (value:Article[]) => this.isContentReadyToShow = true,
+    })
+
+    favoriteArticlesService.favoriteArticles.subscribe({
       next: (value:Article[]) => this.isContentReadyToShow = true,
     })
   }
@@ -26,7 +32,8 @@ export class ArticlesListingComponent implements OnInit, AfterViewInit {
   }
 
   public showFavoritesArticles(){
-    this.articlesService.getFavoriteArticles();
+    this.favoriteArticlesService.getFavoriteArticles();
+    this.articles = this.favoriteArticlesService.favoriteArticles;
   }
 
   ngOnInit(): void {
