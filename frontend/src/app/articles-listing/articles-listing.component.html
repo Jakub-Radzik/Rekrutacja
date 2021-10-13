@@ -1,8 +1,8 @@
 <div class="content">
   <div class="tools">
-    <app-custom-button [customClass]="'favoriteButton'" [icon]="faDownload" [text]="'newest articles'"
+    <app-custom-button [customClass]="'refreshButton'" [icon]="faDownload" [text]="'newest articles'"
                        (callback)="refreshListOfArticles()"></app-custom-button>
-    <app-custom-button [icon]="faHeart" [text]="'favorites'"
+    <app-custom-button [customClass]="'favoriteButton'"  [icon]="faHeart" [text]="'favorites'"
                        (callback)="showFavoritesArticles()"></app-custom-button>
   </div>
   <app-loader class="listing" *ngIf="!(isContentReadyToShow | async)"></app-loader>

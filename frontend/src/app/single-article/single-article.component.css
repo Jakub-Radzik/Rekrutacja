@@ -1,9 +1,7 @@
 .article{
-  /*border: 1px solid black;*/
   width: 100%;
   max-width: 900px;
   margin: auto;
-  /*border-radius: 20px;*/
   font-family: 'Maven Pro', sans-serif;
   letter-spacing: 1px;
 }
@@ -30,6 +28,7 @@
 .title{
   font-size: clamp(1rem, 5vw, 2rem);
   text-align: justify;
+  color: var(--font2);
 }
 
 .summary{
@@ -37,4 +36,11 @@
   text-align: justify;
   line-height: 1.3rem;
   margin: 20px 0;
+  color: var(--font);
+}
+
+.buttonWrapper{
+  width: 100%;
+  max-width: 400px;
+  /*border: 1px solid #000;*/
 }

@@ -9,6 +9,23 @@
   margin: auto;
 }
 
+.tools {
+  background: var(--body2);
+  grid-area: tools;
+  max-height: 1024px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+  box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+  width: 100%;
+}
+
+.listing {
+  grid-area: listing;
+  max-height: 1524px;
+  overflow-y: scroll;
+}
+
 @media (min-width: 1024px) {
   .content {
     grid-template-columns: 1fr 2fr;
@@ -18,21 +35,15 @@
     "tools listing"
     ". listing";
   }
-}
 
-.tools {
-  background: #723f3f;
-  grid-area: tools;
-  max-height: 1024px;
-  margin: 20px 0 0 10px;
-  border-radius: 20px;
-  -webkit-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
-  box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
-}
+  .tools {
+    margin: 20px 0 0 10px;
+    border-radius: 20px;
+    padding: 20px 0;
+    border: 2px solid var(--add);
+  }
 
-.listing {
-  grid-area: listing;
-  max-height: 1524px;
-  overflow: scroll;
+  .listing {
+    margin: 20px 0;
+  }
 }

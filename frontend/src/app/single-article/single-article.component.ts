@@ -2,6 +2,7 @@ import {AfterViewInit, Component} from '@angular/core';
 import {Article} from "../common/interfaces/article";
 import {ArticlesService} from "../articles-listing/services/articles.service";
 import {ActivatedRoute} from "@angular/router";
+import {faCaretRight} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-single-article',
@@ -9,6 +10,8 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./single-article.component.css']
 })
 export class SingleArticleComponent implements AfterViewInit {
+
+  public faCaretRight = faCaretRight;
 
   public article!: Article;
   public date!: Date;

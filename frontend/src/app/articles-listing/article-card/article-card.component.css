@@ -1,7 +1,7 @@
 .card {
   font-family: 'Maven Pro', sans-serif;
   border-radius: 20px;
-  margin: 20px auto;
+  margin: 0 auto 20px auto;
   padding: 0 0 15px 0;
   -webkit-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
@@ -9,6 +9,9 @@
   width: 90%;
   max-width: 600px;
   transition-duration: 0.3s;
+  background: var(--body2);
+  color: var(--font);
+  border: 2px solid var(--add);
 }
 
 .card:hover{
@@ -52,7 +55,7 @@
 .card .date {
   /*font-family: sans-serif;*/
   letter-spacing: 1px;
-  color: #007bff;
+  color: var(--font2);
   font-size: clamp(0.7rem, 3vw, 1rem);
   font-weight: bold;
 }

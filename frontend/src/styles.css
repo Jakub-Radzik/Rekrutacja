@@ -2,23 +2,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
+body {
+  background: var(--body);
+}
+
 html[data-theme='light'] {
   --header-bg: #007bff;
   --switch-color: #180808;
+
+  --nav: rgb(25, 118, 210);
+  --body: #fff;
+  --body2: rgb(252, 252, 252);
+  --body3: rgb(246, 236, 236);
+
+  --add: rgb(219, 219, 219);
+
+  --scroll-thumb: #927b7b;
+  --scroll-thumb-hover: #5b4848;
+
+  --font: #150b0b;
+  --font2: #007bff;
 }
 
 html[data-theme='dark'] {
   --header-bg: #013672;
   --switch-color: #f6f6f6;
+
+  --nav: rgb(13, 71, 161);
+  --body: rgb(48, 48, 48);
+  --body2: rgb(51, 51, 51);
+  --body3: rgb(64, 64, 64);
+
+  --add: rgb(68, 68, 68);
+
+  --scroll-thumb: #888;
+  --scroll-thumb-hover: #cfbcbc;
+
+  --font: #fff;
+  --font2: rgba(221, 24, 234, 0.97);
 }
 
 /*GLOBAL CLASSES)*/
-.favoriteButton{
-  color: red;
+.favoriteButton {
+  color: #ff0000;
+}
+
+.refreshButton {
+  color: #9494ef;
+}
+
+.readMoreButton {
+  /*width: 50%;*/
+  color: var(--font2);
+}
+
+/*SCROLL STYLE*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--body3);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
 }

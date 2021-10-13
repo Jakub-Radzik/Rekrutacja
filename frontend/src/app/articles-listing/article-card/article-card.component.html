@@ -1,28 +1,16 @@
-<div class="card" [routerLink]="['/articles',article.id]">
+<div class="card">
   <div class="container">
-    <img src="{{article.imageUrl}}" alt="image">
+    <img src="{{article.imageUrl}}" alt="image" [routerLink]="['/articles',article.id]">
     <app-favorite-article-toggler [articleId]="article.id"></app-favorite-article-toggler>
-    <div class="newsSite">{{article.newsSite}}</div>
+    <div class="newsSite" [routerLink]="['/articles',article.id]">{{article.newsSite}}</div>
   </div>
-  <div class="date">
-    {{date.getFullYear()}}
-    {{date.toLocaleString('en-EN', {month: 'short'}).toUpperCase()}}
-    {{date.toLocaleString('en-EN', {day: '2-digit'})}}
+  <div class="bottom" [routerLink]="['/articles',article.id]">
+    <div class="date">
+      {{date.getFullYear()}}
+      {{date.toLocaleString('en-EN', {month: 'short'}).toUpperCase()}}
+      {{date.toLocaleString('en-EN', {day: '2-digit'})}}
+    </div>
+    <div class="title">{{article.title}}</div>
   </div>
-
-  <div class="title">{{article.title}}</div>
-<!--  <p class="summary">{{article.summary}}</p>-->
-
-  <!--  <p>{{article.id}}</p>-->
-  <!--  <p>{{article.url}}</p>-->
-  <!--  <p>{{article.featured}}</p>-->
-  <!--  <h4>launches:</h4>-->
-  <!--  <div *ngFor="let launch of article.launches">-->
-  <!--    <p>{{launch.id}} - {{launch.provider}}</p>-->
-  <!--  </div>-->
-  <!--  <h4>events:</h4>-->
-  <!--  <div *ngFor="let event of article.events">-->
-  <!--    <p>{{event.id}} - {{event.provider}}</p>-->
-  <!--  </div>-->
 </div>
 
