@@ -37,7 +37,7 @@ export class ThemeService {
     let theme = ThemeService.getThemeFromLocalStorage();
 
     if (theme == null) {
-      theme = LIGHT;
+      theme = DARK;
       return ThemeService.setThemeInLocalStorage(theme);
     }
 
