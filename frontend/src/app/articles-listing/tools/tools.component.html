@@ -1,0 +1,66 @@
+<form [formGroup]="searchForm">
+
+  <div class="control">
+    <label for="numberOfResults">Articles on site:</label>
+    <input
+      type="range"
+      id="numberOfResults"
+      formControlName="numberOfResults"
+      (change)="updateFormStateAndSearch()"
+      min="10"
+      max="100"
+      value="20"
+      step="10"
+    >
+    <div>{{searchForm.value.numberOfResults}}</div>
+  </div>
+
+  <label>Sort:</label>
+  <div class="control" (change)="updateFormStateAndSearch()">
+    <div class="orderType">
+      <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.order==='DESC'}">
+        <label for="DESC">
+          <fa-icon [icon]="faSortAmountDown" size="2x"></fa-icon>
+          <input type="radio" name="order" id="DESC" value="DESC" formControlName="order">
+        </label>
+      </div>
+      <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.order==='ASC'}">
+        <label for="ASC">
+          <fa-icon [icon]="faSortAmountUp" size="2x"></fa-icon>
+          <input type="radio" name="order" id="ASC" value="ASC" formControlName="order">
+        </label>
+      </div>
+    </div>
+
+    <div class="orderBy">
+      <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.sortBy==='publishedAt'}">
+        <label for="publishedAt">
+          <span>Date</span>
+          <input type="radio" id="publishedAt" name="sortBy" value="publishedAt" formControlName="sortBy">
+        </label>
+      </div>
+      <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.sortBy==='title'}">
+        <label for="title">
+          <span>Title</span>
+          <input type="radio" id="title" name="sortBy" value="title" formControlName="sortBy">
+        </label>
+      </div>
+      <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.sortBy==='newsSite'}">
+        <label for="newsSite">
+          <span>News Site</span>
+          <input type="radio" id="newsSite" name="sortBy" value="newsSite" formControlName="sortBy">
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <label>Page:</label>
+  <div class="control page" (click)="updateFormStateAndSearch()">
+    <fa-icon [icon]="faCaretLeft" size="2x" (click)="decrementPage()"></fa-icon>
+    <input type="number" name="page" id="page" formControlName="page">
+    <fa-icon [icon]="faCaretRight" size="2x" (click)="incrementPage()"></fa-icon>
+  </div>
+
+  <app-custom-button [icon]="faUndo" text="Reset" (callback)="reset()">
+  </app-custom-button>
+</form>

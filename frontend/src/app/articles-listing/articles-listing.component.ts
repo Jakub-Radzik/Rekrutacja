@@ -3,14 +3,14 @@ import {ArticlesService} from "./services/articles.service";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Article} from "../common/interfaces/article";
 import {FavoriteArticlesService} from "./services/favorite-articles.service";
-import { faHeart, faDownload} from "@fortawesome/free-solid-svg-icons";
+import {faHeart, faDownload} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-articles-listing',
   templateUrl: './articles-listing.component.html',
   styleUrls: ['./articles-listing.component.css']
 })
-export class ArticlesListingComponent implements OnInit, AfterViewInit {
+export class ArticlesListingComponent implements OnInit {
 
   public faDownload = faDownload;
   public faHeart = faHeart;
@@ -24,22 +24,22 @@ export class ArticlesListingComponent implements OnInit, AfterViewInit {
     this.articlesCount = articlesService.getArticlesCount();
 
     articlesService.articles.subscribe({
-      next: (value:Article[]) => this.isContentReadyToShow.next(true),
+      next: (value: Article[]) => this.isContentReadyToShow.next(true),
     })
 
     favoriteArticlesService.favoriteArticles.subscribe({
-      next: (value:Article[]) => this.isContentReadyToShow.next(true),
+      next: (value: Article[]) => this.isContentReadyToShow.next(true),
     })
     this.isContentReadyToShow.next(false);
   }
 
-  public refreshListOfArticles(){
+  public refreshListOfArticles() {
     this.isContentReadyToShow.next(false);
     this.articlesService.getArticles();
     this.articles = this.articlesService.articles;
   }
 
-  public showFavoritesArticles(){
+  public showFavoritesArticles() {
     this.isContentReadyToShow.next(false);
     this.favoriteArticlesService.getFavoriteArticles();
     this.articles = this.favoriteArticlesService.favoriteArticles;
@@ -49,7 +49,4 @@ export class ArticlesListingComponent implements OnInit, AfterViewInit {
     this.articlesService.getArticles();
   }
 
-  ngAfterViewInit(): void {
-    // this.isContentReadyToShow.next(true);
-  }
 }

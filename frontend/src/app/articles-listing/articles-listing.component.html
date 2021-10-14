@@ -5,6 +5,9 @@
                        (callback)="refreshListOfArticles()"></app-custom-button>
     <app-custom-button [customClass]="'favoriteButton'"  [icon]="faHeart" [text]="'favorites'"
                        (callback)="showFavoritesArticles()"></app-custom-button>
+
+    <app-tools></app-tools>
+
   </div>
   <app-loader class="listing" *ngIf="!(isContentReadyToShow | async)"></app-loader>
   <ng-container *ngIf="articles | async as articles">
