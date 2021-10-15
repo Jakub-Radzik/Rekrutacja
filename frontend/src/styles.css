@@ -13,7 +13,7 @@ a {
 }
 
 body {
-  background: var(--body);
+  background: var(--main);
 }
 
 html[data-theme='light'] {
@@ -21,11 +21,11 @@ html[data-theme='light'] {
   --switch-color: #180808;
 
   --nav: rgb(25, 118, 210);
-  --body: #fff;
-  --body2: rgb(252, 252, 252);
-  --body3: rgb(246, 236, 236);
+  --main: #fff;
+  --main-2: rgb(252, 252, 252);
+  --main-3: rgb(246, 236, 236);
 
-  --add: rgb(219, 219, 219);
+  --additional: rgb(219, 219, 219);
 
   --scroll-thumb: #927b7b;
   --scroll-thumb-hover: #5b4848;
@@ -39,11 +39,11 @@ html[data-theme='dark'] {
   --switch-color: #f6f6f6;
 
   --nav: rgb(13, 71, 161);
-  --body: rgb(48, 48, 48);
-  --body2: rgb(51, 51, 51);
-  --body3: rgb(64, 64, 64);
+  --main: rgb(48, 48, 48);
+  --main-2: rgb(51, 51, 51);
+  --main-3: rgb(64, 64, 64);
 
-  --add: rgb(68, 68, 68);
+  --additional: rgb(68, 68, 68);
 
   --scroll-thumb: #888;
   --scroll-thumb-hover: #cfbcbc;
@@ -79,7 +79,7 @@ html[data-theme='dark'] {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--body3);
+  background: var(--main-3);
 }
 
 /* Handle */

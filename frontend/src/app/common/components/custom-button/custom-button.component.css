@@ -11,22 +11,12 @@ div {
   text-transform: uppercase;
   margin: 0 0 5px 0;
   transition-duration: 0.3s;
-  background: #a6a2be;
-  /*  TODO:COLOR*/
+  background: var(--additional);
   cursor: pointer;
-  /*width: 80%;*/
-  background: var(--body3);
+  background: var(--main-3);
 }
 
 div:hover{
   padding-right: 20px;
-  background: var(--add);
-}
-
-div > *:first-child{
-  /*border: 1px solid black;*/
-}
-
-span {
-
+  background: var(--additional);
 }

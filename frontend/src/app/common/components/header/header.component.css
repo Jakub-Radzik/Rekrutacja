@@ -28,6 +28,5 @@ header .container {
   font-family: 'Maven Pro', sans-serif;
   font-size: clamp(0.5rem, 10vw, 2rem);
   margin: auto;
-  color: white;
-  /*  TODO:COLOR*/
+  color: var(--font);
 }

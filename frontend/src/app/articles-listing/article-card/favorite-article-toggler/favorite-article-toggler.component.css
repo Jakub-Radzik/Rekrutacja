@@ -11,21 +11,17 @@
 
 .basic{
   color: rgba(133, 133, 133, 0.38);
-  /*  TODO:COLOR*/
 }
 
 .basic:hover{
   color: rgba(222, 59, 59, 0.62);
-  /*  TODO:COLOR*/
 }
 
 .favorite{
   transform: scale(1.4);
   color: red;
-  /*  TODO:COLOR*/
 }
 
 .favorite:hover{
   color: rgba(246, 77, 77, 0.69);
-  /*  TODO:COLOR*/
 }

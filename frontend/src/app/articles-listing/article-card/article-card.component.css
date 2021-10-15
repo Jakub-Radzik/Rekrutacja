@@ -9,9 +9,9 @@
   width: 90%;
   max-width: 600px;
   transition-duration: 0.3s;
-  background: var(--body2);
+  background: var(--main-2);
   color: var(--font);
-  border: 2px solid var(--add);
+  border: 2px solid var(--additional);
 }
 
 .card:hover{
@@ -30,18 +30,14 @@
   font-size: clamp(1rem, 3vw, 2rem);
   letter-spacing: 2px;
   font-weight: 500;
-  color: white;
-  /*  TODO:COLOR*/
-
+  color: #fff;
   position: absolute;
   bottom: 3px;
   left: 0;
   right: 0;
   margin: auto;
-  /*border: 1px solid red;*/
   padding: 30px 0 5px 10px;
   background: rgb(0, 0, 0);
-  /*  TODO:COLOR*/
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 74%);
 }
 
@@ -55,7 +51,6 @@
 }
 
 .card .date {
-  /*font-family: sans-serif;*/
   letter-spacing: 1px;
   color: var(--font2);
   font-size: clamp(0.7rem, 3vw, 1rem);
@@ -65,12 +60,6 @@
 .card .title {
   font-weight: bold;
   padding: 15px 0;
-}
-
-.card .summary {
-  font-size: 0.7rem;
-  color: #989898;
-  /*  TODO:COLOR*/
 }
 
 .toggleFavorite {

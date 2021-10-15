@@ -56,9 +56,9 @@
 
   <label>Page:</label>
   <div class="control page" (click)="updateFormStateAndSearch()">
-    <fa-icon [icon]="faCaretLeft" size="2x" (click)="decrementPage()"></fa-icon>
-    <input type="number" name="page" id="page" formControlName="page">
-    <fa-icon [icon]="faCaretRight" size="2x" (click)="incrementPage()"></fa-icon>
+    <fa-icon [icon]="faCaretLeft" size="4x" (click)="decrementPage()"></fa-icon>
+    <input type="number" name="page" id="page" formControlName="page" [attr.disabled]="true">
+    <fa-icon [icon]="faCaretRight" size="4x" (click)="incrementPage()"></fa-icon>
   </div>
 
   <app-custom-button [icon]="faUndo" text="Reset" (callback)="reset()">

@@ -11,7 +11,7 @@
 }
 
 .tools {
-  background: var(--body2);
+  background: var(--main-2);
   grid-area: tools;
   max-height: 1024px;
   margin: 0 auto;
@@ -49,7 +49,7 @@
     margin: 20px 0 0 10px;
     border-radius: 20px;
     padding: 20px 0;
-    border: 2px solid var(--add);
+    border: 2px solid var(--additional);
   }
 
   .listing {
