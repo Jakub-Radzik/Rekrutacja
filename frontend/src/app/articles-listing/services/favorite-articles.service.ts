@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {ArticleDataService} from "../../common/services/article-data.service";
-import {Article} from "../../common/interfaces/article";
 
 @Injectable({
   providedIn: 'root'
@@ -9,22 +8,14 @@ import {Article} from "../../common/interfaces/article";
 export class FavoriteArticlesService {
   private static FAVORITES_LOCAL_STORAGE_KEY = "favorites";
 
-  public favoriteArticles: BehaviorSubject<Article[]>
   public favoriteArticlesIDs: BehaviorSubject<number[]>
 
   constructor(private articlesDataService: ArticleDataService) {
-    this.favoriteArticles = new BehaviorSubject<Article[]>([]);
     this.favoriteArticlesIDs = new BehaviorSubject<number[]>(FavoriteArticlesService.getFavoritesFromLocalStorage());
 
     this.favoriteArticlesIDs.subscribe({
       next: (value: number[]) => FavoriteArticlesService.saveFavoritesToLocalStorage(value),
     });
-  }
-
-  public getFavoriteArticles(): void {
-    this.articlesDataService.getFavoritesArticles(this.favoriteArticlesIDs.getValue()).subscribe(response => {
-      this.favoriteArticles.next(response);
-    })
   }
 
   public addArticleToFavorites(articleId: number): void {

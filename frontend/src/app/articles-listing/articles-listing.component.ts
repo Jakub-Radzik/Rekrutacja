@@ -16,33 +16,21 @@ export class ArticlesListingComponent implements OnInit {
   public faHeart = faHeart;
 
   public articles: Observable<Article[]>;
-  public isContentReadyToShow = new BehaviorSubject<boolean>(false);
+  public isContentReadyToShow: Observable<boolean>;
   public articlesCount: Observable<number>;
 
   constructor(private articlesService: ArticlesService, private favoriteArticlesService: FavoriteArticlesService) {
     this.articles = articlesService.articles;
     this.articlesCount = articlesService.getArticlesCount();
-
-    articlesService.articles.subscribe({
-      next: (value: Article[]) => this.isContentReadyToShow.next(true),
-    })
-
-    favoriteArticlesService.favoriteArticles.subscribe({
-      next: (value: Article[]) => this.isContentReadyToShow.next(true),
-    })
-    this.isContentReadyToShow.next(false);
+    this.isContentReadyToShow = this.articlesService.isContentReadyToShow;
   }
 
   public refreshListOfArticles() {
-    this.isContentReadyToShow.next(false);
     this.articlesService.getArticles();
-    this.articles = this.articlesService.articles;
   }
 
   public showFavoritesArticles() {
-    this.isContentReadyToShow.next(false);
-    this.favoriteArticlesService.getFavoriteArticles();
-    this.articles = this.favoriteArticlesService.favoriteArticles;
+    this.articlesService.getFavoriteArticles();
   }
 
   ngOnInit(): void {

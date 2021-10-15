@@ -16,6 +16,10 @@ body {
   background: var(--main);
 }
 
+:root{
+  --desktop-min-width: 1024px;
+}
+
 html[data-theme='light'] {
   --header-bg: #007bff;
   --switch-color: #180808;

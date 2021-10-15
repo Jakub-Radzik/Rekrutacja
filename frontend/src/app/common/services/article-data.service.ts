@@ -12,8 +12,8 @@ export class ArticleDataService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public getArticles():Observable<Article[]> {
-    return this.httpClient.get<Article[]>(`${environment.apiUrl}/articles`);
+  public getArticles(parameters: HttpParams):Observable<Article[]> {
+    return this.httpClient.get<Article[]>(`${environment.apiUrl}/articles`, {params: parameters});
   }
 
   public getFavoritesArticles(favoriteArticlesIDs: number[]):Observable<Article[]> {
