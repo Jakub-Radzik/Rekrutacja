@@ -2,17 +2,12 @@ form {
   color: var(--font);
   background: var(--main);
   position: relative;
+  transition-duration: 0.4s;
 }
 
-form::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 30px;
-  background: var(--additional);
-  left: 0;
-  bottom: -30px;
-  border: 1px solid var(--additional);
+.hiddenForm {
+  position: static;
+  transform: translateY(-100%);
 }
 
 .counter {
@@ -94,6 +89,48 @@ div.page > *:not(input) {
   padding: 5px 10px 5px 20px;
 }
 
+.hideForm {
+  width: 100%;
+  padding: 10px;
+  background: var(--additional);
+  color: var(--font2);
+  border: 1px solid var(--additional);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 1ms;
+  transform: translateY(0);
+}
+
+.hideForm > * {
+  transition-duration: 0.3s;
+}
+
+.rotatedChevron > * {
+  transform: rotate(180deg);
+}
+
+.rotatedChevron {
+  transition-delay: 0.5s;
+  transition-duration: 0.7s;
+  transform: translateY(calc(100% - 10px));
+}
+
+.mobileForm{
+  position: fixed;
+  width: 100%;
+  bottom: -100%;
+}
+
+.stickyToBottom{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid var(--additional);
+  background: var(--main);
+}
+
 @media (min-width: 1024px) {
   .control {
     display: flex;
@@ -102,4 +139,9 @@ div.page > *:not(input) {
     justify-content: space-between;
     margin: 20px 0;
   }
+
+  .hideForm{
+    display: none;
+  }
 }
+

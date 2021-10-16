@@ -2,12 +2,13 @@
   font-family: 'Maven Pro', sans-serif;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 20vh auto;
+  grid-template-rows: 5vh auto;
   grid-template-areas:
     "tools"
     "listing";
   max-width: 1024px;
   margin: auto;
+  padding-top: calc(var(--header-height) + 10px);
 }
 
 .tools {
@@ -15,9 +16,6 @@
   grid-area: tools;
   max-height: 1024px;
   margin: 0 auto;
-  -webkit-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
-  box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
   width: 100%;
   z-index: 100;
   background: var(--main);
@@ -45,6 +43,9 @@
     border-radius: 20px;
     padding: 20px 0;
     border: 2px solid var(--additional);
+    -webkit-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
+    box-shadow: 0px 10px 22px -15px rgba(0, 0, 0, 1);
   }
 
   .listing {

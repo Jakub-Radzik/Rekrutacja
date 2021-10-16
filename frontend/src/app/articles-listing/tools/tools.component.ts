@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {
   faCaretLeft,
   faCaretRight,
-  faDownload, faHeart,
+  faChevronUp,
+  faDownload,
+  faHeart,
   faSortAmountDown,
   faSortAmountUp,
   faUndo
@@ -23,22 +25,34 @@ export class ToolsComponent implements OnInit {
     sortDESC: faSortAmountDown,
     caretLeft: faCaretLeft,
     caretRight: faCaretRight,
+    chevronUp: faChevronUp,
     undo: faUndo,
     download: faDownload,
     heart: faHeart
   }
+  public isMobile;
+  public isPanelHidden;
 
   public searchForm: FormGroup;
   public articlesCount: Observable<number>;
 
   constructor(private articlesService: ArticlesService) {
+    this.isMobile = window.innerWidth < 1024
+    this.isPanelHidden = true;
+
     this.articlesCount = articlesService.getArticlesCount();
     this.searchForm = new FormGroup({
       numberOfResults: new FormControl(sessionStorage.getItem('numberOfResults') || 20),
       sortBy: new FormControl(sessionStorage.getItem('sortBy') || "publishedAt"),
       order: new FormControl(sessionStorage.getItem('order') || "DESC"),
-      page: new FormControl(parseInt(<string>sessionStorage.getItem('page')) || 0)
+      page: new FormControl(parseInt(<string>sessionStorage.getItem('page')) || 1)
     })
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: WindowEventHandlers) {
+   this.isMobile = window.innerWidth < 1024;
+   this.isPanelHidden = true;
   }
 
   private getCurrentStateOfForm() {
@@ -53,14 +67,22 @@ export class ToolsComponent implements OnInit {
   }
 
   public refreshListOfArticles() {
+    this.isPanelHidden = this.isMobile;
+    this.resetPage();
     this.articlesService.getArticles();
   }
 
   public showFavoritesArticles() {
+    this.isPanelHidden = this.isMobile;
+    this.resetPage();
     this.articlesService.getFavoriteArticles();
   }
 
-  updateFormStateAndSearch() {
+  updateFormStateAndSearch(resetPage: boolean = true) {
+    if(resetPage){
+      this.resetPage();
+    }
+
     this.saveToStorage();
     this.articlesService.getArticles(this.articlesService.createParametersList(this.getCurrentStateOfForm()));
   }
@@ -93,6 +115,10 @@ export class ToolsComponent implements OnInit {
       page: new FormControl(1)
     })
     this.updateFormStateAndSearch();
+  }
+
+  togglePanelVisibility() {
+    this.isPanelHidden = !this.isPanelHidden;
   }
 
 }

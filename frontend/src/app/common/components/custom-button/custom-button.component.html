@@ -1,4 +1,5 @@
 <div (click)="callFunction()" [ngClass]="[customClass]" >
   <fa-icon [icon]="icon" size="2x" ></fa-icon>
   <span>{{text}}</span>
+  <ng-content></ng-content>
 </div>
