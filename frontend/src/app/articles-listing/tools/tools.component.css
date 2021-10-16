@@ -49,11 +49,25 @@ form {
   border: none;
   background: transparent;
   color: var(--font2);
-  max-width: 50px;
+  max-width: 110px;
   height: 50px;
-  margin: 0 30px;
+  /*margin: 0 30px;*/
+  padding: 0 10px;
   outline: none;
   user-select: none;
+}
+
+div.page > *:not(input) {
+  cursor: pointer;
+  padding: 5px 10px 5px 20px;
+  width: 100%;
+  text-align: center;
+  background: var(--additional);
+  transition-duration: 0.4s;
+}
+
+div.page > *:not(input):hover{
+  background: var(--font2);
 }
 
 .radioWrapper {
@@ -84,10 +98,6 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-div.page > *:not(input) {
-  cursor: pointer;
-  padding: 5px 10px 5px 20px;
-}
 
 .hideForm {
   width: 100%;
