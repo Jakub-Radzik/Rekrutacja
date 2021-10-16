@@ -16,11 +16,16 @@ body {
   background: var(--main);
 }
 
+:root {
+  --header-height: 10vh;
+}
+
 html[data-theme='light'] {
   --header-bg: #007bff;
   --switch-color: #180808;
 
   --nav: rgb(25, 118, 210);
+  --foot: rgb(25, 118, 210);
   --main: #fff;
   --main-2: rgb(252, 252, 252);
   --main-3: rgb(246, 236, 236);
@@ -32,6 +37,7 @@ html[data-theme='light'] {
 
   --font: #150b0b;
   --font2: #007bff;
+  --font3: #150b0b;
 }
 
 html[data-theme='dark'] {
@@ -39,6 +45,8 @@ html[data-theme='dark'] {
   --switch-color: #f6f6f6;
 
   --nav: rgb(13, 71, 161);
+  --foot: rgb(13, 71, 161);
+
   --main: rgb(48, 48, 48);
   --main-2: rgb(51, 51, 51);
   --main-3: rgb(64, 64, 64);
@@ -50,9 +58,10 @@ html[data-theme='dark'] {
 
   --font: #fff;
   --font2: rgba(221, 24, 234, 0.97);
+  --font3: rgba(255, 255, 255, 0.97);
 }
 
-/*GLOBAL CLASSES)*/
+/*GLOBAL CLASSES*/
 .favoriteButton {
   color: #ff0000;
 }
@@ -63,10 +72,14 @@ html[data-theme='dark'] {
 
 .readMoreButton {
   /*width: 50%;*/
-  color: var(--font2);
+  color: var(--font3);
 }
 
-.backHomeButton{
+.backHomeButton {
+  color: var(--font);
+}
+
+.footerButton{
   color: var(--font);
 }
 

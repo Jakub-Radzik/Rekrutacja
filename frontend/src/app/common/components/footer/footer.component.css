@@ -1,10 +1,29 @@
 footer{
+  font-family: 'Maven Pro', sans-serif;
   width: 100%;
-  min-height: 300px;
-  background: var(--nav);
+  margin-top: 200px;
+  background: var(--foot);
 }
 
 footer .container{
+  color: white;
   width: 100%;
   max-width: 1024px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 300px;
+}
+
+.container > div{
+  padding: 20px;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+.container > div > div{
+  padding: 20px 0;
+  text-align: center;
 }
