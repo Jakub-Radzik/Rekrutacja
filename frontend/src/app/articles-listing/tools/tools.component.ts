@@ -45,7 +45,7 @@ export class ToolsComponent implements OnInit {
       numberOfResults: new FormControl(sessionStorage.getItem('numberOfResults') || 20),
       sortBy: new FormControl(sessionStorage.getItem('sortBy') || "publishedAt"),
       order: new FormControl(sessionStorage.getItem('order') || "DESC"),
-      page: new FormControl(parseInt(<string>sessionStorage.getItem('page')) || 21)
+      page: new FormControl(parseInt(<string>sessionStorage.getItem('page')) || 1)
     })
   }
 
@@ -80,7 +80,7 @@ export class ToolsComponent implements OnInit {
 
   updateFormStateAndSearch(resetPage: boolean = true) {
     if(resetPage){
-      // this.resetPage();
+      this.resetPage();
     }
 
     this.saveToStorage();
@@ -112,7 +112,7 @@ export class ToolsComponent implements OnInit {
       numberOfResults: new FormControl(20),
       sortBy: new FormControl("publishedAt"),
       order: new FormControl("DESC"),
-      page: new FormControl(2222)
+      page: new FormControl(1)
     })
     this.updateFormStateAndSearch();
   }
