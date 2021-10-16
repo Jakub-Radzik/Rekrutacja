@@ -8,7 +8,7 @@
   justify-content: space-around;
   align-items: center;
   margin: auto;
-  color: white;
+  color: var(--font);
   font-family: 'Maven Pro', sans-serif;
   font-size: clamp(1rem, 5vw, 2rem);
   text-align: center;
@@ -19,8 +19,12 @@
   max-width: 400px;
 }
 
-h1, h2{
-  animation: pulse 0.3s linear infinite backwards;;
+h1{
+  animation: pulse 0.4s linear 0.2s infinite backwards;;
+}
+
+h2{
+  animation: pulse 0.4s linear infinite backwards;;
 }
 
 @keyframes pulse {
