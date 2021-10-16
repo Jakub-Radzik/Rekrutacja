@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SingleArticleComponent } from './single-article.component';
+import {SingleArticleComponent} from './single-article.component';
 
 describe('SingleArticleComponent', () => {
   let component: SingleArticleComponent;

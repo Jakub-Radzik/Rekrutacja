@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ArticleDataService} from "../../common/services/article-data.service";
 import {Article} from "../../common/interfaces/article";
-import {BehaviorSubject, observable, Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {HttpParams} from "@angular/common/http";
 import {FavoriteArticlesService} from "./favorite-articles.service";
 

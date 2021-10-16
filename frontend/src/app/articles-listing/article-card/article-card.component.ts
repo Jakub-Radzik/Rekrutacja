@@ -1,6 +1,5 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Article} from "../../common/interfaces/article";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-article-card',

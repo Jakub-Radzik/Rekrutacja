@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {faSortAmountDown, faSortAmountUp, faCaretLeft, faCaretRight, faUndo} from "@fortawesome/free-solid-svg-icons";
-import {HttpParams} from "@angular/common/http";
+import {faCaretLeft, faCaretRight, faSortAmountDown, faSortAmountUp, faUndo} from "@fortawesome/free-solid-svg-icons";
 import {ArticlesService} from "../services/articles.service";
 import {FavoriteArticlesService} from "../services/favorite-articles.service";
 

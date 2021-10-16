@@ -1,9 +1,8 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ArticlesService} from "./services/articles.service";
-import {BehaviorSubject, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {Article} from "../common/interfaces/article";
-import {FavoriteArticlesService} from "./services/favorite-articles.service";
-import {faHeart, faDownload} from "@fortawesome/free-solid-svg-icons";
+import {faDownload, faHeart} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-articles-listing',
@@ -19,7 +18,7 @@ export class ArticlesListingComponent implements OnInit {
   public isContentReadyToShow: Observable<boolean>;
   public articlesCount: Observable<number>;
 
-  constructor(private articlesService: ArticlesService, private favoriteArticlesService: FavoriteArticlesService) {
+  constructor(private articlesService: ArticlesService) {
     this.articles = articlesService.articles;
     this.articlesCount = articlesService.getArticlesCount();
     this.isContentReadyToShow = this.articlesService.isContentReadyToShow;

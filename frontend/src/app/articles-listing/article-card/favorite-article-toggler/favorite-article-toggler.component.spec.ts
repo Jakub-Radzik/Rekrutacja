@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FavoriteArticleTogglerComponent } from './favorite-article-toggler.component';
+import {FavoriteArticleTogglerComponent} from './favorite-article-toggler.component';
 
 describe('FavoriteArticleTogglerComponent', () => {
   let component: FavoriteArticleTogglerComponent;
