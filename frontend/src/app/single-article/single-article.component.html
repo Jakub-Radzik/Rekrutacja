@@ -4,7 +4,7 @@
 
   <div class="buttonWrapper">
     <a routerLink="/articles">
-      <app-custom-button customClass="readMoreButton" [icon]="faCaretRight" >
+      <app-custom-button customClass="casualButton" [icon]="faCaretRight" >
         <span>Back to: <span class="specialText">articles</span></span>
       </app-custom-button>
     </a>
@@ -31,7 +31,7 @@
 
   <div class="buttonWrapper">
     <a href="{{article.url}}">
-      <app-custom-button customClass="readMoreButton" [icon]="faCaretRight" >
+      <app-custom-button customClass="casualButton" [icon]="faCaretRight" >
         <span>Read more at: <span class="specialText">{{article.newsSite}}</span></span>
       </app-custom-button>
     </a>
