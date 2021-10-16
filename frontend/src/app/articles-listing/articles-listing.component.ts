@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ArticlesService} from "./services/articles.service";
 import {Observable} from "rxjs";
 import {Article} from "../common/interfaces/article";
-import {faDownload, faHeart} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-articles-listing',
@@ -11,28 +10,16 @@ import {faDownload, faHeart} from "@fortawesome/free-solid-svg-icons";
 })
 export class ArticlesListingComponent implements OnInit {
 
-  public faDownload = faDownload;
-  public faHeart = faHeart;
-
   public articles: Observable<Article[]>;
   public isContentReadyToShow: Observable<boolean>;
-  public articlesCount: Observable<number>;
 
   constructor(private articlesService: ArticlesService) {
     this.articles = articlesService.articles;
-    this.articlesCount = articlesService.getArticlesCount();
     this.isContentReadyToShow = this.articlesService.isContentReadyToShow;
   }
 
-  public refreshListOfArticles() {
-    this.articlesService.getArticles();
-  }
-
-  public showFavoritesArticles() {
-    this.articlesService.getFavoriteArticles();
-  }
-
   ngOnInit(): void {
+    //TODO: parameters? bugfix!!!
     this.articlesService.getArticles();
   }
 

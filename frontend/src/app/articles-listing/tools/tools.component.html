@@ -1,4 +1,9 @@
 <form [formGroup]="searchForm">
+  <div class="counter">Available articles: {{articlesCount | async}}</div>
+  <app-custom-button [customClass]="'refreshButton'" [icon]="icons.download" [text]="'newest articles'"
+                     (callback)="refreshListOfArticles()"></app-custom-button>
+  <app-custom-button [customClass]="'favoriteButton'" [icon]="icons.heart" [text]="'favorites'"
+                     (callback)="showFavoritesArticles()"></app-custom-button>
 
   <div class="control">
     <label for="numberOfResults">Articles on site:</label>
@@ -20,13 +25,13 @@
     <div class="orderType">
       <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.order==='DESC'}">
         <label for="DESC">
-          <fa-icon [icon]="faSortAmountDown" size="2x"></fa-icon>
+          <fa-icon [icon]="icons.sortDESC" size="2x"></fa-icon>
           <input type="radio" name="order" id="DESC" value="DESC" formControlName="order">
         </label>
       </div>
       <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.order==='ASC'}">
         <label for="ASC">
-          <fa-icon [icon]="faSortAmountUp" size="2x"></fa-icon>
+          <fa-icon [icon]="icons.sortASC" size="2x"></fa-icon>
           <input type="radio" name="order" id="ASC" value="ASC" formControlName="order">
         </label>
       </div>
@@ -56,11 +61,11 @@
 
   <label>Page:</label>
   <div class="control page" (click)="updateFormStateAndSearch()">
-    <fa-icon [icon]="faCaretLeft" size="4x" (click)="decrementPage()"></fa-icon>
+    <fa-icon [icon]="icons.caretLeft" size="4x" (click)="decrementPage()"></fa-icon>
     <input type="number" name="page" id="page" formControlName="page" [attr.disabled]="true">
-    <fa-icon [icon]="faCaretRight" size="4x" (click)="incrementPage()"></fa-icon>
+    <fa-icon [icon]="icons.caretRight" size="4x" (click)="incrementPage()"></fa-icon>
   </div>
 
-  <app-custom-button [icon]="faUndo" text="Reset" (callback)="resetAndSearch()">
+  <app-custom-button [icon]="icons.undo" text="Reset" (callback)="resetAndSearch()">
   </app-custom-button>
 </form>

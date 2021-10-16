@@ -1,8 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {faCaretLeft, faCaretRight, faSortAmountDown, faSortAmountUp, faUndo} from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretLeft,
+  faCaretRight,
+  faDownload, faHeart,
+  faSortAmountDown,
+  faSortAmountUp,
+  faUndo
+} from "@fortawesome/free-solid-svg-icons";
 import {ArticlesService} from "../services/articles.service";
-import {FavoriteArticlesService} from "../services/favorite-articles.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-tools',
@@ -11,15 +18,21 @@ import {FavoriteArticlesService} from "../services/favorite-articles.service";
 })
 export class ToolsComponent implements OnInit {
 
-  public faSortAmountDown = faSortAmountDown;
-  public faSortAmountUp = faSortAmountUp;
-  public faCaretLeft = faCaretLeft;
-  public faCaretRight = faCaretRight;
-  public faUndo = faUndo;
+  public icons = {
+    sortASC: faSortAmountUp,
+    sortDESC: faSortAmountDown,
+    caretLeft: faCaretLeft,
+    caretRight: faCaretRight,
+    undo: faUndo,
+    download: faDownload,
+    heart: faHeart
+  }
 
   public searchForm: FormGroup;
+  public articlesCount: Observable<number>;
 
-  constructor(private articlesService: ArticlesService, private favoriteArticlesService: FavoriteArticlesService) {
+  constructor(private articlesService: ArticlesService) {
+    this.articlesCount = articlesService.getArticlesCount();
     this.searchForm = new FormGroup({
       numberOfResults: new FormControl(sessionStorage.getItem('numberOfResults') || 20),
       sortBy: new FormControl(sessionStorage.getItem('sortBy') || "publishedAt"),
@@ -32,18 +45,24 @@ export class ToolsComponent implements OnInit {
     return [
       ['_sort', `${this.searchForm.value.sortBy}:${this.searchForm.value.order}`],
       ['_limit', `${this.searchForm.value.numberOfResults}`],
-      ['_start', `${(this.searchForm.value.page-1)*this.searchForm.value.numberOfResults}`],
+      ['_start', `${(this.searchForm.value.page - 1) * this.searchForm.value.numberOfResults}`],
     ];
   }
 
   ngOnInit(): void {
   }
 
+  public refreshListOfArticles() {
+    this.articlesService.getArticles();
+  }
+
+  public showFavoritesArticles() {
+    this.articlesService.getFavoriteArticles();
+  }
+
   updateFormStateAndSearch() {
     this.saveToStorage();
-    this.articlesService.getArticles(
-      this.articlesService.createParametersList(this.getCurrentStateOfForm()));
-
+    this.articlesService.getArticles(this.articlesService.createParametersList(this.getCurrentStateOfForm()));
   }
 
   saveToStorage() {
@@ -60,6 +79,10 @@ export class ToolsComponent implements OnInit {
   decrementPage() {
     const page = this.searchForm.value.page;
     this.searchForm['controls']['page'].setValue(page <= 1 ? 1 : page - 1);
+  }
+
+  resetPage() {
+    this.searchForm['controls']['page'].setValue(1);
   }
 
   resetAndSearch() {

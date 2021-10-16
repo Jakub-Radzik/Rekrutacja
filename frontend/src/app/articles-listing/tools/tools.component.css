@@ -4,7 +4,7 @@ form {
   position: relative;
 }
 
-form::after{
+form::after {
   position: absolute;
   content: "";
   width: 100%;
@@ -13,6 +13,14 @@ form::after{
   left: 0;
   bottom: -30px;
   border: 1px solid var(--additional);
+}
+
+.counter {
+  color: var(--font2);
+  font-weight: bold;
+  padding: 0 0 10px 10px;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 .control {
@@ -81,12 +89,12 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-div.page > *:not(input){
+div.page > *:not(input) {
   cursor: pointer;
   padding: 5px 10px 5px 20px;
 }
 
-@media (min-width: var(--desktop-min-width)) {
+@media (min-width: 1024px) {
   .control {
     display: flex;
     flex-direction: row;

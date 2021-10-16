@@ -23,13 +23,6 @@
   background: var(--main);
 }
 
-.counter{
-  color: var(--font2);
-  font-weight: bold;
-  padding: 0 0 10px 10px;
-  letter-spacing: 1px;
-  text-align: center;
-}
 
 .listing {
   grid-area: listing;
@@ -37,7 +30,7 @@
   overflow-y: scroll;
 }
 
-@media (min-width: var(--desktop-min-width)) {
+@media (min-width: 1024px) {
   .content {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 40vh 40vh 20vh;
