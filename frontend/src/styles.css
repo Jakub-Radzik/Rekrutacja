@@ -28,6 +28,7 @@ html[data-theme='light'] {
   --nav: rgb(25, 118, 210);
   --foot: rgb(25, 118, 210);
   --main: #fff;
+  --main-alpha: rgba(255, 255, 255, 0.7);
   --main-2: rgb(252, 252, 252);
   --main-3: rgb(246, 236, 236);
 
@@ -49,6 +50,7 @@ html[data-theme='dark'] {
   --foot: rgb(13, 71, 161);
 
   --main: rgb(48, 48, 48);
+  --main-alpha: rgba(48, 48, 48, 0.7);
   --main-2: rgb(51, 51, 51);
   --main-3: rgb(64, 64, 64);
 

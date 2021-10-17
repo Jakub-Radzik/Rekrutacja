@@ -6,6 +6,7 @@ import {ThemeSwitchComponent} from './components/theme-switch/theme-switch.compo
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {CommonModule} from "@angular/common";
 import {CustomButtonComponent} from './components/custom-button/custom-button.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 
 
 @NgModule({
@@ -14,18 +15,20 @@ import {CustomButtonComponent} from './components/custom-button/custom-button.co
     FooterComponent,
     LoaderComponent,
     ThemeSwitchComponent,
-    CustomButtonComponent
+    CustomButtonComponent,
+    ScrollToTopComponent
   ],
     imports: [
         FontAwesomeModule,
         CommonModule
     ],
-  exports: [
-    HeaderComponent,
-    FooterComponent,
-    LoaderComponent,
-    CustomButtonComponent
-  ]
+    exports: [
+        HeaderComponent,
+        FooterComponent,
+        LoaderComponent,
+        CustomButtonComponent,
+        ScrollToTopComponent
+    ]
 })
 export class CoreModule {
 }

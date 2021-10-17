@@ -3,10 +3,11 @@ form {
   background: var(--main);
   position: relative;
   transition-duration: 0.4s;
+  z-index: 100;
 }
 
 .hiddenForm {
-  position: static;
+  /*position: static;*/
   transform: translateY(-100%);
 }
 
