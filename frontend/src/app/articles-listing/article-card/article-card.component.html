@@ -1,6 +1,6 @@
 <div class="card">
   <div class="container">
-    <img src="{{article.imageUrl}}" alt="image" [routerLink]="['/articles',article.id]">
+    <img src="{{article.imageUrl}}" loading="lazy" alt="image" [routerLink]="['/articles',article.id]">
     <app-favorite-article-toggler [articleId]="article.id"></app-favorite-article-toggler>
     <div class="newsSite" [routerLink]="['/articles',article.id]">{{article.newsSite}}</div>
   </div>

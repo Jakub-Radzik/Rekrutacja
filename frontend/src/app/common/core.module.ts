@@ -7,6 +7,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {CommonModule} from "@angular/common";
 import {CustomButtonComponent} from './components/custom-button/custom-button.component';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import {AppRoutingModule} from "../app-routing.module";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
   ],
     imports: [
         FontAwesomeModule,
-        CommonModule
+        CommonModule,
+        AppRoutingModule
     ],
     exports: [
         HeaderComponent,

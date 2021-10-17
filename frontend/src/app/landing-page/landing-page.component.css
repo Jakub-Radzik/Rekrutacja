@@ -19,12 +19,8 @@
   max-width: 400px;
 }
 
-h1{
-  animation: pulse 0.4s linear 0.2s infinite backwards;;
-}
-
 h2{
-  animation: pulse 0.4s linear infinite backwards;;
+  animation: pulse 2s linear infinite backwards;;
 }
 
 @keyframes pulse {
