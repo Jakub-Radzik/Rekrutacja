@@ -28,7 +28,6 @@ export class ArticlesService {
     updateFormDictionary.forEach(pair => {
       httpParams = httpParams.append(pair[0], pair[1]);
     })
-    console.dir(httpParams)
     return httpParams;
   }
 
@@ -42,7 +41,18 @@ export class ArticlesService {
     );
   }
 
-  public getArticles(parameters: HttpParams = new HttpParams()): void {
+  public getArticles(parameters: HttpParams = new HttpParams(), favorites = false): void {
+    // todo : set page to 1 after click refresh and favs
+    if (favorites) {
+      this.favoriteArticlesIDs.forEach(id => {
+        parameters = parameters.append('id_in', id);
+      })
+
+    }
+    console.log(favorites)
+    console.dir(parameters)
+
+
     this.isContentReadyToShow.next(false);
     this.articlesDataService.getArticles(parameters).subscribe(response => {
       this.articles.next(response);

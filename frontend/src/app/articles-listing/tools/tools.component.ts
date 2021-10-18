@@ -12,6 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {ArticlesService} from "../services/articles.service";
 import {Observable} from "rxjs";
+import {FilterService} from "../services/filter.service";
 
 @Component({
   selector: 'app-tools',
@@ -32,21 +33,14 @@ export class ToolsComponent implements OnInit {
   }
   public isMobile;
   public isPanelHidden;
-
-  public searchForm: FormGroup;
   public articlesCount: Observable<number>;
+  public searchForm: FormGroup;
 
-  constructor(private articlesService: ArticlesService) {
+  constructor(private articlesService: ArticlesService, private filterService: FilterService) {
     this.isMobile = window.innerWidth < 1024
     this.isPanelHidden = true;
-
     this.articlesCount = articlesService.getArticlesCount();
-    this.searchForm = new FormGroup({
-      numberOfResults: new FormControl(sessionStorage.getItem('numberOfResults') || 20),
-      sortBy: new FormControl(sessionStorage.getItem('sortBy') || "publishedAt"),
-      order: new FormControl(sessionStorage.getItem('order') || "DESC"),
-      page: new FormControl(parseInt(<string>sessionStorage.getItem('page')) || 1)
-    })
+    this.searchForm = filterService.searchForm;
   }
 
   @HostListener('window:resize', ['$event'])
@@ -55,66 +49,40 @@ export class ToolsComponent implements OnInit {
    this.isPanelHidden = true;
   }
 
-  private getCurrentStateOfForm() {
-    return [
-      ['_sort', `${this.searchForm.value.sortBy}:${this.searchForm.value.order}`],
-      ['_limit', `${this.searchForm.value.numberOfResults}`],
-      ['_start', `${(this.searchForm.value.page - 1) * this.searchForm.value.numberOfResults}`],
-    ];
-  }
-
   ngOnInit(): void {
   }
 
   public refreshListOfArticles() {
     this.isPanelHidden = this.isMobile;
     this.resetPage();
-    this.articlesService.getArticles();
+    this.filterService.refreshListOfArticles();
   }
 
   public showFavoritesArticles() {
     this.isPanelHidden = this.isMobile;
     this.resetPage();
-    this.articlesService.getFavoriteArticles();
+    this.filterService.showFavoritesArticles();
   }
 
   updateFormStateAndSearch(resetPage: boolean = true) {
-    if(resetPage){
-      this.resetPage();
-    }
-
-    this.saveToStorage();
-    this.articlesService.getArticles(this.articlesService.createParametersList(this.getCurrentStateOfForm()));
-  }
-
-  saveToStorage() {
-    sessionStorage.setItem('numberOfResults', this.searchForm.value.numberOfResults);
-    sessionStorage.setItem('sortBy', this.searchForm.value.sortBy);
-    sessionStorage.setItem('order', this.searchForm.value.order);
-    sessionStorage.setItem('page', this.searchForm.value.page);
+    console.dir(this.searchForm)
+    this.filterService.updateFormStateAndSearch(resetPage);
   }
 
   incrementPage() {
-    this.searchForm['controls']['page'].setValue(this.searchForm.value.page + 1);
+    this.filterService.incrementPage();
   }
 
   decrementPage() {
-    const page = this.searchForm.value.page;
-    this.searchForm['controls']['page'].setValue(page <= 1 ? 1 : page - 1);
+    this.filterService.decrementPage();
   }
 
   resetPage() {
-    this.searchForm['controls']['page'].setValue(1);
+    this.filterService.resetPage();
   }
 
   resetAndSearch() {
-    this.searchForm = new FormGroup({
-      numberOfResults: new FormControl(20),
-      sortBy: new FormControl("publishedAt"),
-      order: new FormControl("DESC"),
-      page: new FormControl(1)
-    })
-    this.updateFormStateAndSearch();
+    this.filterService.resetAndSearch();
   }
 
   togglePanelVisibility() {
