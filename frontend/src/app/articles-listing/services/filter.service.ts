@@ -1,16 +1,17 @@
 import {Injectable} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ArticlesService} from "./articles.service";
+import {HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
   public searchForm: FormGroup;
-  public useFavorites;
+  public useFavorites: boolean;
 
-  constructor(private articlesService: ArticlesService) {
-    this.useFavorites = parseInt(<string>sessionStorage.getItem('useFavorites')) || 0;
+  constructor() {
+    this.useFavorites = JSON.parse(<string>sessionStorage.getItem('useFavorites')) || false;
     this.searchForm = new FormGroup({
       numberOfResults: new FormControl(sessionStorage.getItem('numberOfResults') || 20),
       sortBy: new FormControl(sessionStorage.getItem('sortBy') || "publishedAt"),
@@ -27,27 +28,16 @@ export class FilterService {
     ];
   }
 
-  public refreshListOfArticles() {
-    this.useFavorites = 0;
-    this.articlesService.getArticles();
+  public getParameters(): HttpParams {
+    return this.createParametersList(this.getCurrentStateOfForm());
   }
 
-  public showFavoritesArticles() {
-    this.useFavorites = 1;
-    this.articlesService.getArticles(
-      this.articlesService.createParametersList(
-        this.getCurrentStateOfForm()), true);
-  }
-
-  updateFormStateAndSearch(resetPage: boolean = true) {
-    console.dir(this.searchForm)
-
+  updateFiltersState(resetPage: boolean = true) {
     if (resetPage) {
       this.resetPage();
     }
 
     this.saveToStorage();
-    this.articlesService.getArticles(this.articlesService.createParametersList(this.getCurrentStateOfForm()), !!this.useFavorites);
   }
 
   incrementPage() {
@@ -63,18 +53,21 @@ export class FilterService {
     this.searchForm['controls']['page'].setValue(1);
   }
 
-  resetAndSearch() {
-    this.reset();
-    this.updateFormStateAndSearch();
+  onArticlesRefreshDefaults(){
+    this.resetPage();
+    this.searchForm['controls']['sortBy'].setValue('publishedAt');
+    this.searchForm['controls']['order'].setValue('DESC');
   }
 
-  reset(){
+  reset() {
     this.searchForm = new FormGroup({
       numberOfResults: new FormControl(20),
       sortBy: new FormControl("publishedAt"),
       order: new FormControl("DESC"),
       page: new FormControl(1)
     })
+    this.useFavorites = false;
+    this.updateFiltersState();
   }
 
   saveToStorage() {
@@ -82,7 +75,15 @@ export class FilterService {
     sessionStorage.setItem('sortBy', this.searchForm.value.sortBy);
     sessionStorage.setItem('order', this.searchForm.value.order);
     sessionStorage.setItem('page', this.searchForm.value.page);
-    sessionStorage.setItem('useFavorites', this.useFavorites.toString());
+    sessionStorage.setItem('useFavorites', JSON.stringify(this.useFavorites));
+  }
+
+  private createParametersList(listOfParamPairs: Array<string[]>) {
+    let httpParams = new HttpParams();
+    listOfParamPairs.forEach(pair => {
+      httpParams = httpParams.append(pair[0], pair[1]);
+    })
+    return httpParams;
   }
 
 }

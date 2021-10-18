@@ -1,5 +1,4 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
 import {
   faCaretLeft,
   faCaretRight,
@@ -31,42 +30,39 @@ export class ToolsComponent implements OnInit {
     download: faDownload,
     heart: faHeart
   }
-  public isMobile;
-  public isPanelHidden;
+  public isMobile: boolean;
+  public isPanelHidden: boolean;
   public articlesCount: Observable<number>;
-  public searchForm: FormGroup;
 
-  constructor(private articlesService: ArticlesService, private filterService: FilterService) {
+  constructor(private articlesService: ArticlesService, public filterService: FilterService) {
     this.isMobile = window.innerWidth < 1024
     this.isPanelHidden = true;
     this.articlesCount = articlesService.getArticlesCount();
-    this.searchForm = filterService.searchForm;
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: WindowEventHandlers) {
-   this.isMobile = window.innerWidth < 1024;
-   this.isPanelHidden = true;
+    this.isMobile = window.innerWidth < 1024;
+    this.isPanelHidden = true;
   }
 
   ngOnInit(): void {
   }
 
-  public refreshListOfArticles() {
+  public getArticles(favorites: boolean) {
     this.isPanelHidden = this.isMobile;
-    this.resetPage();
-    this.filterService.refreshListOfArticles();
+    this.filterService.useFavorites = favorites;
+    this.filterService.onArticlesRefreshDefaults()
+    this.articlesService.getArticles();
   }
 
-  public showFavoritesArticles() {
-    this.isPanelHidden = this.isMobile;
-    this.resetPage();
-    this.filterService.showFavoritesArticles();
+  updateFiltersStateAndGetArticles(resetPage: boolean = true) {
+    this.updateFiltersState(resetPage);
+    this.articlesService.getArticles();
   }
 
-  updateFormStateAndSearch(resetPage: boolean = true) {
-    console.dir(this.searchForm)
-    this.filterService.updateFormStateAndSearch(resetPage);
+  updateFiltersState(resetPage: boolean = true) {
+    this.filterService.updateFiltersState(resetPage);
   }
 
   incrementPage() {
@@ -77,12 +73,9 @@ export class ToolsComponent implements OnInit {
     this.filterService.decrementPage();
   }
 
-  resetPage() {
-    this.filterService.resetPage();
-  }
-
-  resetAndSearch() {
-    this.filterService.resetAndSearch();
+  reset() {
+    this.filterService.reset();
+    this.articlesService.getArticles();
   }
 
   togglePanelVisibility() {

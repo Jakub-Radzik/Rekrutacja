@@ -19,7 +19,6 @@ export class ArticlesListingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //TODO: parameters? bugfix!!!
     this.articlesService.getArticles();
   }
 

@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {ArticleDataService} from "../../common/services/article-data.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ export class FavoriteArticlesService {
 
   public favoriteArticlesIDs: BehaviorSubject<number[]>
 
-  constructor(private articlesDataService: ArticleDataService) {
+  constructor() {
     this.favoriteArticlesIDs = new BehaviorSubject<number[]>(FavoriteArticlesService.getFavoritesFromLocalStorage());
 
     this.favoriteArticlesIDs.subscribe({

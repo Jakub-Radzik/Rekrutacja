@@ -1,9 +1,9 @@
-<form [formGroup]="searchForm" [ngClass]="{'hiddenForm': isPanelHidden && isMobile}">
+<form [formGroup]="this.filterService.searchForm" [ngClass]="{'hiddenForm': isPanelHidden && isMobile}">
   <div class="counter">Available articles: {{articlesCount | async}}</div>
   <app-custom-button [customClass]="'refreshButton'" [icon]="icons.download" [text]="'newest articles'"
-                     (callback)="refreshListOfArticles()"></app-custom-button>
+                     (callback)="getArticles(false)"></app-custom-button>
   <app-custom-button [customClass]="'favoriteButton'" [icon]="icons.heart" [text]="'favorites'"
-                     (callback)="showFavoritesArticles()"></app-custom-button>
+                     (callback)="getArticles(true)"></app-custom-button>
 
   <div class="control">
     <label for="numberOfResults">Articles on site:</label>
@@ -11,25 +11,25 @@
       type="range"
       id="numberOfResults"
       formControlName="numberOfResults"
-      (change)="updateFormStateAndSearch()"
+      (change)="updateFiltersStateAndGetArticles()"
       min="5"
       max="50"
       value="10"
       step="5"
     >
-    <div>{{searchForm.value.numberOfResults}}</div>
+    <div>{{this.filterService.searchForm.value.numberOfResults}}</div>
   </div>
 
   <label>Sort:</label>
-  <div class="control" (change)="updateFormStateAndSearch()">
+  <div class="control" (change)="updateFiltersStateAndGetArticles()">
     <div class="orderType">
-      <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.order==='DESC'}">
+      <div class="radioWrapper" [ngClass]="{'selected':this.filterService.searchForm.value.order==='DESC'}">
         <label for="DESC">
           <fa-icon [icon]="icons.sortDESC" size="2x"></fa-icon>
           <input type="radio" name="order" id="DESC" value="DESC" formControlName="order">
         </label>
       </div>
-      <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.order==='ASC'}">
+      <div class="radioWrapper" [ngClass]="{'selected':this.filterService.searchForm.value.order==='ASC'}">
         <label for="ASC">
           <fa-icon [icon]="icons.sortASC" size="2x"></fa-icon>
           <input type="radio" name="order" id="ASC" value="ASC" formControlName="order">
@@ -38,19 +38,19 @@
     </div>
 
     <div class="orderBy">
-      <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.sortBy==='publishedAt'}">
+      <div class="radioWrapper" [ngClass]="{'selected':this.filterService.searchForm.value.sortBy==='publishedAt'}">
         <label for="publishedAt">
           <span>Date</span>
           <input type="radio" id="publishedAt" name="sortBy" value="publishedAt" formControlName="sortBy">
         </label>
       </div>
-      <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.sortBy==='title'}">
+      <div class="radioWrapper" [ngClass]="{'selected':this.filterService.searchForm.value.sortBy==='title'}">
         <label for="title">
           <span>Title</span>
           <input type="radio" id="title" name="sortBy" value="title" formControlName="sortBy">
         </label>
       </div>
-      <div class="radioWrapper" [ngClass]="{'selected':searchForm.value.sortBy==='newsSite'}">
+      <div class="radioWrapper" [ngClass]="{'selected':this.filterService.searchForm.value.sortBy==='newsSite'}">
         <label for="newsSite">
           <span>News Site</span>
           <input type="radio" id="newsSite" name="sortBy" value="newsSite" formControlName="sortBy">
@@ -60,21 +60,21 @@
   </div>
 
   <label>Page:</label>
-  <div class="control page" (click)="updateFormStateAndSearch(false)">
+  <div class="control page" (click)="updateFiltersStateAndGetArticles(false)">
     <fa-icon [icon]="icons.caretLeft" size="4x" (click)="decrementPage()"></fa-icon>
     <input type="number" name="page" id="page" formControlName="page" [attr.disabled]="true">
     <fa-icon [icon]="icons.caretRight" size="4x" (click)="incrementPage()"></fa-icon>
   </div>
 
-  <app-custom-button [icon]="icons.undo" text="Reset" (callback)="resetAndSearch()">
+  <app-custom-button [icon]="icons.undo" text="Reset" (callback)="reset()">
   </app-custom-button>
   <div class="hideForm" [ngClass]="{'rotatedChevron':isPanelHidden}" (click)="togglePanelVisibility()">
     <fa-icon [icon]="icons.chevronUp" size="2x"></fa-icon>
   </div>
 </form>
 
-<form class="mobileForm" [ngClass]="{'stickyToBottom':isPanelHidden && isMobile}" [formGroup]="searchForm">
-  <div class="control page" (click)="updateFormStateAndSearch(false)">
+<form class="mobileForm" [ngClass]="{'stickyToBottom':isPanelHidden && isMobile}" [formGroup]="this.filterService.searchForm">
+  <div class="control page" (click)="updateFiltersStateAndGetArticles(false)">
     <fa-icon [icon]="icons.caretLeft" size="4x" (click)="decrementPage()"></fa-icon>
     <input type="number" name="page" formControlName="page" [attr.disabled]="true">
     <fa-icon [icon]="icons.caretRight" size="4x" (click)="incrementPage()"></fa-icon>
