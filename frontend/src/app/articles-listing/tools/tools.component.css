@@ -67,8 +67,8 @@ div.page > *:not(input) {
   transition-duration: 0.4s;
 }
 
-div.page > *:not(input):hover{
-  background: var(--font2);
+.radioWrapper, .radioWrapper *, input[type=range] {
+  cursor: pointer;
 }
 
 .radioWrapper {
@@ -77,7 +77,15 @@ div.page > *:not(input):hover{
   align-items: center;
   width: max-content;
   padding: 10px;
+  transition-duration: 0.4s;
 }
+
+
+.radioWrapper:hover, div.page > *:not(input):hover {
+  background: var(--font2);
+  color: var(--additional);
+}
+
 
 input[type="radio"] {
   display: none;
@@ -127,13 +135,13 @@ input[type=number] {
   transform: translateY(calc(100% - 10px));
 }
 
-.mobileForm{
+.mobileForm {
   position: fixed;
   width: 100%;
   bottom: -100%;
 }
 
-.stickyToBottom{
+.stickyToBottom {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -151,7 +159,7 @@ input[type=number] {
     margin: 20px 0;
   }
 
-  .hideForm{
+  .hideForm {
     display: none;
   }
 }
