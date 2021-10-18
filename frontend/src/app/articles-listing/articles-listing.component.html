@@ -10,6 +10,9 @@
         [article]="article"
       >
       </app-article-card>
+      <h2 class="noResults" *ngIf="!articles.length">
+        There is no result for the selected parameters. Please change your search criteria.
+      </h2>
     </div>
   </ng-container>
 </div>

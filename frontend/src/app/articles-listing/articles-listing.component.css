@@ -20,6 +20,14 @@
   background: var(--main);
 }
 
+.noResults{
+  color: var(--font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 30px;
+}
 
 .listing {
   grid-area: listing;
@@ -50,4 +58,5 @@
     max-height: 1524px;
     overflow-y: scroll;
   }
+
 }
