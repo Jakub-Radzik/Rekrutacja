@@ -34,6 +34,10 @@ export class FavoriteArticlesService {
     return !isFavorite;
   }
 
+  public hasFavorites(){
+    return this.favoriteArticlesIDs.getValue().length > 0;
+  }
+
   // localstorage manipulation=========================================
   private static saveFavoritesToLocalStorage(articlesIDs: number[]) {
     localStorage.setItem(FavoriteArticlesService.FAVORITES_LOCAL_STORAGE_KEY, JSON.stringify(articlesIDs))

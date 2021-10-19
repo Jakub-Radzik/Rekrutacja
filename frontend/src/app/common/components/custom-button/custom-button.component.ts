@@ -10,18 +10,25 @@ import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 export class CustomButtonComponent implements OnInit {
 
   @Input() text!: string;
-  @Input() customClass: string = "";
+  @Input() customClasses: string[] = [];
   @Input() icon: IconDefinition = faHeart;
+  @Input() isDisabled: boolean = false;
   @Output() callback = new EventEmitter<any>();
+
 
   constructor() {
   }
 
   ngOnInit(): void {
+    if(this.isDisabled){
+      this.customClasses.push('disabled');
+    }
   }
 
   callFunction(){
-    this.callback.emit();
+    if(!this.isDisabled){
+      this.callback.emit();
+    }
   }
 
 }

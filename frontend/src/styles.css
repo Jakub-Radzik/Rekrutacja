@@ -67,6 +67,12 @@ html[data-theme='dark'] {
 /*GLOBAL CLASSES*/
 .favoriteButton {
   color: #ff0000;
+  transition-duration: 0.5s;
+}
+
+.noFavorites{
+  color: grey;
+  transition-duration: 0.5s;
 }
 
 .refreshButton {

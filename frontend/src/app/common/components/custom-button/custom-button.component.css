@@ -10,7 +10,6 @@ div {
   align-items: center;
   text-transform: uppercase;
   transition-duration: 0.3s;
-  background: var(--additional);
   cursor: pointer;
   background: var(--main-3);
 }
@@ -18,4 +17,14 @@ div {
 div:hover{
   padding-right: 20px;
   background: var(--additional);
+}
+
+.disabled{
+  background: #565656;
+  cursor: auto;
+}
+
+.disabled:hover{
+  padding-right: 5px !important;
+  background: var(--main-3) !important;
 }

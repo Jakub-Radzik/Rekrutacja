@@ -17,20 +17,20 @@ import {AppRoutingModule} from "../app-routing.module";
     LoaderComponent,
     ThemeSwitchComponent,
     CustomButtonComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
   ],
   imports: [
     FontAwesomeModule,
     CommonModule,
     AppRoutingModule
   ],
-  exports: [
-    HeaderComponent,
-    FooterComponent,
-    LoaderComponent,
-    CustomButtonComponent,
-    ScrollToTopComponent
-  ]
+    exports: [
+        HeaderComponent,
+        FooterComponent,
+        LoaderComponent,
+        CustomButtonComponent,
+        ScrollToTopComponent,
+    ]
 })
 export class CoreModule {
 }

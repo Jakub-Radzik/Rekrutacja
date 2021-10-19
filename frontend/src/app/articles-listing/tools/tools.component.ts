@@ -12,6 +12,7 @@ import {
 import {ArticlesService} from "../services/articles.service";
 import {Observable} from "rxjs";
 import {FilterService} from "../services/filter.service";
+import {FavoriteArticlesService} from "../services/favorite-articles.service";
 
 @Component({
   selector: 'app-tools',
@@ -34,7 +35,7 @@ export class ToolsComponent implements OnInit {
   public isPanelHidden: boolean;
   public articlesCount: Observable<number>;
 
-  constructor(private articlesService: ArticlesService, public filterService: FilterService) {
+  constructor(private articlesService: ArticlesService, private favoritesArticlesService: FavoriteArticlesService, public filterService: FilterService) {
     this.isMobile = window.innerWidth < 1024
     this.isPanelHidden = true;
     this.articlesCount = articlesService.getArticlesCount();
@@ -80,6 +81,10 @@ export class ToolsComponent implements OnInit {
 
   togglePanelVisibility() {
     this.isPanelHidden = !this.isPanelHidden;
+  }
+
+  hasFavorites(){
+    return this.favoritesArticlesService.hasFavorites();
   }
 
 }

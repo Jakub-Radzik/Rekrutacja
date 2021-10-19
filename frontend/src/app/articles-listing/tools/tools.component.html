@@ -1,8 +1,8 @@
 <form [formGroup]="this.filterService.searchForm" [ngClass]="{'hiddenForm': isPanelHidden && isMobile}">
   <div class="counter">Available articles: {{articlesCount | async}}</div>
-  <app-custom-button [customClass]="'refreshButton'" [icon]="icons.download" [text]="'newest articles'"
+  <app-custom-button [customClasses]="['refreshButton']" [icon]="icons.download" [text]="'newest articles'"
                      (callback)="getArticles(false)"></app-custom-button>
-  <app-custom-button [customClass]="'favoriteButton'" [icon]="icons.heart" [text]="'favorites'"
+  <app-custom-button [isDisabled]="!hasFavorites()" [customClasses]="[hasFavorites()?'favoriteButton':'noFavorites']" [icon]="icons.heart" [text]="'favorites'"
                      (callback)="getArticles(true)"></app-custom-button>
 
   <div class="control">
@@ -73,7 +73,8 @@
   </div>
 </form>
 
-<form class="mobileForm" [ngClass]="{'stickyToBottom':isPanelHidden && isMobile}" [formGroup]="this.filterService.searchForm">
+<form class="mobileForm" [ngClass]="{'stickyToBottom':isPanelHidden && isMobile}"
+      [formGroup]="this.filterService.searchForm">
   <div class="control page" (click)="updateFiltersStateAndGetArticles(false)">
     <fa-icon [icon]="icons.caretLeft" size="4x" (click)="decrementPage()"></fa-icon>
     <input type="number" name="page" formControlName="page" [attr.disabled]="true">

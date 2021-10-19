@@ -14,8 +14,8 @@ export class BasicInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     //ONLY DEVELOPMENT PURPOSES
-    // console.dir(request.urlWithParams)
-    // console.dir(request)
+    console.dir(request.urlWithParams)
+    console.dir(request)
     return next.handle(request);
   }
 }
