@@ -15,7 +15,7 @@
 }
 
 .disabled{
-  background: #565656;
+  background: var(--main);
   cursor: auto !important;
 }
 
