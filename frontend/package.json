@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build",
-    "build:page": "ng build --prod --base-href 'https://radzikoska123.github.io/Rekrutacja/spaceflight-news-solvro'",
+    "build": "ng build --prod --base-href \"https://radzikoska123.github.io/Rekrutacja/\"",
+    "host": "npx angular-cli-ghpages --dir=dist/spaceflight-news-solvro",
+    "deploy": "npm run build && npm run host",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
