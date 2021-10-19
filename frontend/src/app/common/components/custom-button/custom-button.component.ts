@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {faHeart} from "@fortawesome/free-solid-svg-icons";
 import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 
@@ -7,7 +7,7 @@ import {IconDefinition} from "@fortawesome/fontawesome-common-types";
   templateUrl: './custom-button.component.html',
   styleUrls: ['./custom-button.component.css']
 })
-export class CustomButtonComponent implements OnInit {
+export class CustomButtonComponent implements OnInit, OnChanges {
 
   @Input() text!: string;
   @Input() customClasses: string[] = [];
@@ -17,16 +17,23 @@ export class CustomButtonComponent implements OnInit {
 
 
   constructor() {
+    console.dir(this.isDisabled)
   }
 
   ngOnInit(): void {
-    if(this.isDisabled){
-      this.customClasses.push('disabled');
-    }
+    this.toggleClasses(this.isDisabled);
   }
 
-  callFunction(){
-    if(!this.isDisabled){
+  ngOnChanges(changes: SimpleChanges): void {
+    this.toggleClasses(this.isDisabled);
+  }
+
+  private toggleClasses(disabled: boolean) {
+    disabled ? this.customClasses.push('disabled') : this.customClasses.push('effects');
+  }
+
+  callFunction() {
+    if (!this.isDisabled) {
       this.callback.emit();
     }
   }

@@ -1,4 +1,4 @@
-div {
+.customButton {
   font-family: 'Maven Pro', sans-serif;
   font-weight: bold;
   font-size: clamp(0.7rem, 3vw, 1rem);
@@ -14,17 +14,17 @@ div {
   background: var(--main-3);
 }
 
-div:hover{
+.disabled{
+  background: #565656;
+  cursor: auto !important;
+}
+
+.effects:hover{
   padding-right: 20px;
   background: var(--additional);
 }
 
-.disabled{
-  background: #565656;
-  cursor: auto;
-}
 
-.disabled:hover{
-  padding-right: 5px !important;
-  background: var(--main-3) !important;
-}
+
+
+
