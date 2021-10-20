@@ -54,6 +54,7 @@ export class ToolsComponent implements OnInit {
     this.isPanelHidden = this.isMobile;
     this.filterService.useFavorites = favorites;
     this.filterService.onArticlesRefreshDefaults()
+    this.filterService.saveToStorage()
     this.articlesService.getArticles();
   }
 

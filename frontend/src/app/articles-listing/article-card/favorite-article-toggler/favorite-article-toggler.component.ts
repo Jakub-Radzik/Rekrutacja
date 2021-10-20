@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import {ArticlesService} from "../../services/articles.service";
 import {FavoriteArticlesService} from "../../services/favorite-articles.service";
+import {FilterService} from "../../services/filter.service";
 
 @Component({
   selector: 'app-favorite-article-toggler',
@@ -14,7 +15,7 @@ export class FavoriteArticleTogglerComponent implements OnInit {
   @Input() articleId!: number;
   public isFavorite!: boolean;
 
-  constructor(private articleService: ArticlesService, private favoriteArticlesService: FavoriteArticlesService) {
+  constructor(private articleService: ArticlesService, private favoriteArticlesService: FavoriteArticlesService, private filterService:FilterService) {
   }
 
   ngOnInit(): void {
@@ -23,6 +24,14 @@ export class FavoriteArticleTogglerComponent implements OnInit {
 
   public toggleFavorite() {
     this.isFavorite = this.favoriteArticlesService.toggleFavorite(this.isFavorite, this.articleId);
+    if(this.filterService.useFavorites){
+      //todo: do it better !!!!
+      this.filterService.useFavorites = false;
+      this.filterService.saveToStorage();
+
+
+      this.articleService.getArticles();
+    }
   }
 
 }
