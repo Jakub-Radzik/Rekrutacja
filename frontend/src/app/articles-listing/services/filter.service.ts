@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {ArticlesService} from "./articles.service";
 import {HttpParams} from "@angular/common/http";
+import {NUMBER_OF_RESULTS_KEY, ORDER_KEY, PAGE_KEY, SORT_BY_KEY, USE_FAVORITES_KEY} from "../../common/utils/names";
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +11,12 @@ export class FilterService {
   public useFavorites: boolean;
 
   constructor() {
-    this.useFavorites = JSON.parse(<string>sessionStorage.getItem('useFavorites')) || false;
+    this.useFavorites = JSON.parse(<string>sessionStorage.getItem(USE_FAVORITES_KEY)) || false;
     this.searchForm = new FormGroup({
-      numberOfResults: new FormControl(sessionStorage.getItem('numberOfResults') || 20),
-      sortBy: new FormControl(sessionStorage.getItem('sortBy') || "publishedAt"),
-      order: new FormControl(sessionStorage.getItem('order') || "DESC"),
-      page: new FormControl(parseInt(<string>sessionStorage.getItem('page')) || 1)
+      numberOfResults: new FormControl(sessionStorage.getItem(NUMBER_OF_RESULTS_KEY) || 20),
+      sortBy: new FormControl(sessionStorage.getItem(SORT_BY_KEY) || "publishedAt"),
+      order: new FormControl(sessionStorage.getItem(ORDER_KEY) || "DESC"),
+      page: new FormControl(parseInt(<string>sessionStorage.getItem(PAGE_KEY)) || 1)
     })
   }
 
@@ -86,11 +86,11 @@ export class FilterService {
   }
 
   saveToStorage() {
-    sessionStorage.setItem('numberOfResults', this.searchForm.value.numberOfResults);
-    sessionStorage.setItem('sortBy', this.searchForm.value.sortBy);
-    sessionStorage.setItem('order', this.searchForm.value.order);
-    sessionStorage.setItem('page', this.searchForm.value.page);
-    sessionStorage.setItem('useFavorites', JSON.stringify(this.useFavorites));
+    sessionStorage.setItem(NUMBER_OF_RESULTS_KEY, this.searchForm.value.numberOfResults);
+    sessionStorage.setItem(SORT_BY_KEY, this.searchForm.value.sortBy);
+    sessionStorage.setItem(ORDER_KEY, this.searchForm.value.order);
+    sessionStorage.setItem(PAGE_KEY, this.searchForm.value.page);
+    sessionStorage.setItem(USE_FAVORITES_KEY, JSON.stringify(this.useFavorites));
   }
 
   private createParametersList(listOfParamPairs: Array<string[]>) {

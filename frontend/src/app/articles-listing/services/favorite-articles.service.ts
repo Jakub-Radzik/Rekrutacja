@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
+import {FAVORITES_LOCAL_STORAGE_KEY} from "../../common/utils/names";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoriteArticlesService {
-  private static FAVORITES_LOCAL_STORAGE_KEY = "favorites";
 
   public favoriteArticlesIDs: BehaviorSubject<number[]>
 
@@ -40,11 +40,11 @@ export class FavoriteArticlesService {
 
   // localstorage manipulation=========================================
   private static saveFavoritesToLocalStorage(articlesIDs: number[]) {
-    localStorage.setItem(FavoriteArticlesService.FAVORITES_LOCAL_STORAGE_KEY, JSON.stringify(articlesIDs))
+    localStorage.setItem(FAVORITES_LOCAL_STORAGE_KEY, JSON.stringify(articlesIDs))
   }
 
   private static getFavoritesFromLocalStorage() {
-    let data = localStorage.getItem(FavoriteArticlesService.FAVORITES_LOCAL_STORAGE_KEY);
+    let data = localStorage.getItem(FAVORITES_LOCAL_STORAGE_KEY);
     return data ? JSON.parse(data) : [];
   }
 }
