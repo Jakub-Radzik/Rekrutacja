@@ -17,7 +17,6 @@ export class CustomButtonComponent implements OnInit, OnChanges {
 
 
   constructor() {
-    console.dir(this.isDisabled)
   }
 
   ngOnInit(): void {

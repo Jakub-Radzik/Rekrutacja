@@ -53,8 +53,8 @@ export class ToolsComponent implements OnInit {
   public getArticles(favorites: boolean) {
     this.isPanelHidden = this.isMobile;
     this.filterService.useFavorites = favorites;
-    this.filterService.onArticlesRefreshDefaults()
-    this.filterService.saveToStorage()
+    this.filterService.onArticlesRefreshDefaults();
+    this.filterService.saveToStorage();
     this.articlesService.getArticles();
   }
 
@@ -84,7 +84,7 @@ export class ToolsComponent implements OnInit {
     this.isPanelHidden = !this.isPanelHidden;
   }
 
-  hasFavorites(){
+  hasFavorites() {
     return this.favoritesArticlesService.hasFavorites();
   }
 

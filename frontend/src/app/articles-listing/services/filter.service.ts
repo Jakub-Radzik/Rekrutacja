@@ -49,25 +49,40 @@ export class FilterService {
     this.searchForm['controls']['page'].setValue(page <= 1 ? 1 : page - 1);
   }
 
+  resetUseFavorites() {
+    this.useFavorites = false;
+  }
+
+  resetNumbersOfResults() {
+    this.searchForm['controls']['numberOfResults'].setValue(20);
+  }
+
+  resetSortBy() {
+    this.searchForm['controls']['sortBy'].setValue("publishedAt");
+  }
+
+  resetOrder() {
+    this.searchForm['controls']['order'].setValue("DESC");
+  }
+
   resetPage() {
     this.searchForm['controls']['page'].setValue(1);
   }
 
-  onArticlesRefreshDefaults(){
+
+  onArticlesRefreshDefaults() {
     this.resetPage();
-    this.searchForm['controls']['sortBy'].setValue('publishedAt');
-    this.searchForm['controls']['order'].setValue('DESC');
+    this.resetSortBy();
+    this.resetOrder();
   }
 
   reset() {
-    this.searchForm = new FormGroup({
-      numberOfResults: new FormControl(20),
-      sortBy: new FormControl("publishedAt"),
-      order: new FormControl("DESC"),
-      page: new FormControl(1)
-    })
-    this.useFavorites = false;
-    this.updateFiltersState();
+    this.resetNumbersOfResults();
+    this.resetSortBy();
+    this.resetOrder();
+    this.resetPage();
+    this.resetUseFavorites();
+    this.saveToStorage();
   }
 
   saveToStorage() {
