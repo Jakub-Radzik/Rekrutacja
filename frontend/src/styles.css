@@ -80,9 +80,13 @@ html[data-theme='dark'] {
 }
 
 .casualButton {
-  /*width: 50%;*/
   color: var(--font);
 }
+
+.reallyVisibleButton{
+  color: var(--font);
+}
+
 
 /*SCROLL STYLE*/
 
