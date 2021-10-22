@@ -12,12 +12,14 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {CommonModule} from "@angular/common";
 import {SingleArticleModule} from "./single-article/single-article.module";
 import {BasicInterceptor} from "./common/utils/basic.interceptor";
+import { PlanetRocketAnimationComponent } from './landing-page/planet-rocket-animation/planet-rocket-animation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     PageNotFoundComponent,
+    PlanetRocketAnimationComponent,
   ],
   imports: [
     BrowserModule,
