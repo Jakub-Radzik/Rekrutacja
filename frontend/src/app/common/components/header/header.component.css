@@ -34,5 +34,5 @@ header .container {
   font-family: 'Maven Pro', sans-serif;
   font-size: clamp(0.3rem, 8vw, 2rem);
   margin: auto;
-  color: var(--font);
+  color: white;
 }

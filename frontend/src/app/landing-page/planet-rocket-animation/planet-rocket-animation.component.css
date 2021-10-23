@@ -5,80 +5,98 @@
   overflow: hidden;
 }
 
-.objects{
+.objects {
   position: absolute;
   width: 50px;
 }
 
-#rocket1{
-  left: 40%;
+#rocket1 {
+  left: 30%;
   top: 30%;
-  animation: rocketAnimation 15s infinite linear;
-  transform-origin: 200px 200px;
+  animation: rocketAnimation1 15s infinite linear;
+  transform-origin: 250px 250px;
 }
 
-#rocket2{
+#rocket2 {
   right: 20%;
   bottom: -10%;
   animation: rocketAnimation2 3s infinite linear;
   transform: rotate(-20deg);
 }
 
-/*#rocket3{*/
-/*  right: 20%;*/
-/*  bottom: 0;*/
-/*}*/
+#rocket3{
+  left: 20%;
+  bottom: -50px;
+  animation: rocketAnimation3 4s infinite 1s linear;
+  transform: rotate(10deg);
+}
 
-/*#rocket4{*/
-/*  right: 20%;*/
-/*  bottom: 0;*/
-/*}*/
+#rocket4{
+  left: -60px;
+  bottom: 0;
+  transform: rotate(60deg);
+  animation: rocketAnimation4 4s infinite linear;
+}
 
-@keyframes rocketAnimation {
-  100%{
+@keyframes rocketAnimation1 {
+  100% {
     transform: rotate(360deg);
   }
 }
 
 @keyframes rocketAnimation2 {
-  100%{
+  100% {
     transform: translateY(-100vh) translateX(-100px);
   }
 }
 
-.ufo{
+@keyframes rocketAnimation3 {
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+  }
+}
+
+@keyframes rocketAnimation4 {
+  100% {
+    transform: translateY(-100px) translateX(100vw) rotate(80deg);
+  }
+}
+
+.ufo {
   left: -30px;
   transform-origin: 100px 100px;
 }
 
-#ufo1{
+#ufo1 {
   top: 20%;
   animation: ufo 3s infinite linear;
 }
-#ufo2{
+
+#ufo2 {
   top: 30%;
   animation: ufo 2s infinite ease-out;
 }
-#ufo3{
+
+#ufo3 {
   top: 50%;
   animation: ufo 5s infinite linear reverse;
 }
 
-#sat1{
-  left: 0;
-  bottom: 0;
+#sat1 {
+  left: -50px;
+  bottom: -50px;
   animation: sat 10s infinite linear;
 }
 
-#sat2{
-  right: 0;
+#sat2 {
+  right: -50px;
   top: 0;
   animation: sat2 10s infinite linear;
   transform-origin: 50vh;
 }
 
 @media (min-width: 700px) {
-  .ufo{
+  .ufo {
     width: 50px;
     animation-duration: 20s !important;
   }
@@ -102,6 +120,8 @@
   }
 }
 
+
+/*PLANET*/
 .planet {
   width: 300px;
   height: 300px;

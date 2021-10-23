@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {faNewspaper} from "@fortawesome/free-solid-svg-icons";
+import {faCaretRight} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-landing-page',
@@ -8,7 +8,7 @@ import {faNewspaper} from "@fortawesome/free-solid-svg-icons";
 })
 export class LandingPageComponent implements OnInit {
 
-  public icon = faNewspaper;
+  public icon = faCaretRight;
 
   constructor() { }
 
