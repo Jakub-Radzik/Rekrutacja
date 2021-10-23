@@ -1,0 +1,174 @@
+.animationWrapper {
+  width: 100vw;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.objects{
+  position: absolute;
+  width: 50px;
+}
+
+#rocket1{
+  left: 40%;
+  top: 30%;
+  animation: rocketAnimation 15s infinite linear;
+  transform-origin: 200px 200px;
+}
+
+#rocket2{
+  right: 20%;
+  bottom: -10%;
+  animation: rocketAnimation2 3s infinite linear;
+  transform: rotate(-20deg);
+}
+
+/*#rocket3{*/
+/*  right: 20%;*/
+/*  bottom: 0;*/
+/*}*/
+
+/*#rocket4{*/
+/*  right: 20%;*/
+/*  bottom: 0;*/
+/*}*/
+
+@keyframes rocketAnimation {
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rocketAnimation2 {
+  100%{
+    transform: translateY(-100vh) translateX(-100px);
+  }
+}
+
+.ufo{
+  left: -30px;
+  transform-origin: 100px 100px;
+}
+
+#ufo1{
+  top: 20%;
+  animation: ufo 3s infinite linear;
+}
+#ufo2{
+  top: 30%;
+  animation: ufo 2s infinite ease-out;
+}
+#ufo3{
+  top: 50%;
+  animation: ufo 5s infinite linear reverse;
+}
+
+#sat1{
+  left: 0;
+  bottom: 0;
+  animation: sat 10s infinite linear;
+}
+
+#sat2{
+  right: 0;
+  top: 0;
+  animation: sat2 10s infinite linear;
+  transform-origin: 50vh;
+}
+
+@media (min-width: 700px) {
+  .ufo{
+    width: 50px;
+    animation-duration: 20s !important;
+  }
+}
+
+@keyframes ufo {
+  100% {
+    transform: translateX(120vw) rotate(10deg);
+  }
+}
+
+@keyframes sat {
+  100% {
+    transform: translateX(50vw) translateY(-100vh) rotate(720deg); /* translateX(120vw) translateY(-100vh)*/
+  }
+}
+
+@keyframes sat2 {
+  100% {
+    transform: translateX(-50vw) translateY(110vh) rotate(10deg); /* translateX(120vw) translateY(-100vh)*/
+  }
+}
+
+.planet {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 60px -20px rgba(255, 189, 3, 0.72), -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
+  left: 50%;
+  top: 50%;
+  margin: -150px;
+}
+
+.planet .mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-shadow: inset -10px -10px 40px #251303, inset 10px 10px 30px -10px rgba(255, 204, 159, 0.6);
+  border-radius: 50%;
+}
+
+.planet .background {
+  animation: translateBackground 40s infinite linear;
+  background: url(http://artem.anmedio.ru/dev/planet/mars.jpg) repeat-x;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.planet .clouds {
+  background: url(http://artem.anmedio.ru/dev/planet/clouds.png) repeat-x;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  border-radius: 50%;
+  animation: translateBackground 30s infinite linear;
+  opacity: 0.4;
+}
+
+.planet .wrap {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  border-radius: 50%;
+  animation: rotatePlanet 120s infinite linear;
+}
+
+@keyframes translateBackground {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -600px;
+  }
+}
+
+@keyframes rotatePlanet {
+  0% {
+    transform: rotateZ(0);
+  }
+  40% {
+    transform: rotateZ(-30deg);
+  }
+  80% {
+    transform: rotateZ(30deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
