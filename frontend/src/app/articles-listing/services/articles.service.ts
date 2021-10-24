@@ -51,4 +51,8 @@ export class ArticlesService {
   public getArticlesCount(): Observable<number> {
     return this.articlesDataService.getArticlesCount();
   }
+
+  public hasArticles(){
+    return this.articles.getValue().length > 0;
+  }
 }

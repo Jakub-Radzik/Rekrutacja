@@ -7,7 +7,6 @@ form {
 }
 
 .hiddenForm {
-  /*position: static;*/
   transform: translateY(-100%);
 }
 

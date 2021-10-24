@@ -63,7 +63,7 @@
   <div class="control page" (click)="updateFiltersStateAndGetArticles(false)">
     <fa-icon [icon]="icons.caretLeft" size="4x" (click)="decrementPage()"></fa-icon>
     <input type="number" name="page" id="page" formControlName="page" [attr.disabled]="true">
-    <fa-icon [icon]="icons.caretRight" size="4x" (click)="incrementPage()"></fa-icon>
+    <fa-icon [icon]="icons.caretRight" size="4x" (click)="incrementPage(hasArticles())" [ngClass]="!hasArticles()?'noArticles':''"></fa-icon>
   </div>
 
   <app-custom-button [icon]="icons.undo" text="Reset" (callback)="reset()">
@@ -78,6 +78,6 @@
   <div class="control page" (click)="updateFiltersStateAndGetArticles(false)">
     <fa-icon [icon]="icons.caretLeft" size="4x" (click)="decrementPage()"></fa-icon>
     <input type="number" name="page" formControlName="page" [attr.disabled]="true">
-    <fa-icon [icon]="icons.caretRight" size="4x" (click)="incrementPage()"></fa-icon>
+    <fa-icon [icon]="icons.caretRight" size="4x" (click)="incrementPage(hasArticles())" [ngClass]="!hasArticles()?'noArticles':''"></fa-icon>
   </div>
 </form>

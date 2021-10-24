@@ -67,8 +67,10 @@ export class ToolsComponent implements OnInit {
     this.filterService.updateFiltersState(resetPage);
   }
 
-  incrementPage() {
-    this.filterService.incrementPage();
+  incrementPage(hasArticles: boolean = true) {
+    if(hasArticles){
+      this.filterService.incrementPage();
+    }
   }
 
   decrementPage() {
@@ -86,6 +88,10 @@ export class ToolsComponent implements OnInit {
 
   hasFavorites() {
     return this.favoritesArticlesService.hasFavorites();
+  }
+
+  hasArticles(){
+    return this.articlesService.hasArticles();
   }
 
 }

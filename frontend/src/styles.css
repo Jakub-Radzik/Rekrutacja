@@ -93,6 +93,17 @@ html[data-theme='dark'] {
   font-size: clamp(1rem, 6vw, 1.3rem) !important;
 }
 
+.noArticles{
+  color: var(--main);
+  background: var(--main) !important;
+  cursor: auto !important;
+}
+
+.noArticles:hover{
+  color: var(--main) !important;
+  background: var(--main) !important;
+}
+
 /*SCROLL STYLE*/
 
 /* width */
