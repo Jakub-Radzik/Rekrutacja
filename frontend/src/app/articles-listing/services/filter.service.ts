@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {HttpParams} from "@angular/common/http";
-import {NUMBER_OF_RESULTS_KEY, ORDER_KEY, PAGE_KEY, SORT_BY_KEY, USE_FAVORITES_KEY} from "../../common/utils/names";
+import {NUMBER_OF_RESULTS_KEY, ORDER_KEY, PAGE_KEY, SORT_BY_KEY, USE_FAVORITES_KEY} from "../../common/utils/keys";
 
 @Injectable({
   providedIn: 'root'

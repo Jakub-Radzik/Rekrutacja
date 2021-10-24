@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {FAVORITES_LOCAL_STORAGE_KEY} from "../../common/utils/names";
+import {FAVORITES_LOCAL_STORAGE_KEY} from "../../common/utils/keys";
 
 @Injectable({
   providedIn: 'root'

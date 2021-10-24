@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons';
-import {DARK, LIGHT, THEME_LOCAL_STORAGE_KEY} from "../utils/names";
+import {DARK, LIGHT, THEME_LOCAL_STORAGE_KEY} from "../utils/keys";
 
 @Injectable({
   providedIn: 'root'
