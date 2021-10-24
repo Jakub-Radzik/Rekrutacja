@@ -1,0 +1,51 @@
+:root {
+  --header-height: 10vh;
+  --footer-height: 300px;
+}
+
+html[data-theme='light'] {
+  --header-bg: #007bff;
+  --switch-color: #180808;
+
+  --nav: rgb(25, 118, 210);
+  --foot: rgb(25, 118, 210);
+  --main: #fff;
+  --main-alpha: rgba(255, 255, 255, 0.7);
+  --main-2: rgb(252, 252, 252);
+  --main-3: rgb(246, 236, 236);
+
+  --additional: rgb(219, 219, 219);
+
+  --scroll-thumb: #927b7b;
+  --scroll-thumb-hover: #5b4848;
+
+  --font: #150b0b;
+  --font2: #007bff;
+  --font3: #150b0b;
+
+  --stars: #000;
+}
+
+html[data-theme='dark'] {
+  --header-bg: #013672;
+  --switch-color: #f6f6f6;
+
+  --nav: rgb(13, 71, 161);
+  --foot: rgb(13, 71, 161);
+
+  --main: rgb(48, 48, 48);
+  --main-alpha: rgba(48, 48, 48, 0.7);
+  --main-2: rgb(51, 51, 51);
+  --main-3: rgb(64, 64, 64);
+
+  --additional: rgb(68, 68, 68);
+
+  --scroll-thumb: #888;
+  --scroll-thumb-hover: #cfbcbc;
+
+  --font: #fff;
+  --font2: rgba(221, 24, 234, 0.97);
+  --font3: rgba(255, 255, 255, 0.97);
+
+  --stars: #fff;
+}
