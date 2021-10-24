@@ -122,3 +122,46 @@
   }
 }
 
+/*death star*/
+
+#deathStar{
+  left: 50%;
+  top: 50%;
+  z-index: 9;
+  transform: scale(0.01);
+  animation: deathStarAnimation 20s linear 2s 1 forwards;
+}
+
+@keyframes deathStarAnimation {
+  10%{
+    transform: scale(1);
+    z-index: 9;
+  }
+  20%{
+    transform: scale(1) translateX(300px);
+    z-index: 9;
+  }
+  30%{
+    transform: scale(2) translateX(0);
+    z-index: 12;
+  }
+  40%{
+    transform: scale(1) translateX(-400px);
+    z-index: 9;
+  }
+  60%{
+    z-index: 9;
+  }
+  70%{
+    transform: scale(1) translateX(100px);
+    z-index: 9;
+  }
+  80%{
+    transform: scale(3) translateX(100px) translateY(-100px);
+    z-index: 9;
+  }
+  100%{
+    transform: scale(2) translateX(100px) translateY(-50vh);
+    z-index: 9;
+  }
+}
