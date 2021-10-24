@@ -40,6 +40,8 @@ html[data-theme='light'] {
   --font: #150b0b;
   --font2: #007bff;
   --font3: #150b0b;
+
+  --stars: #000;
 }
 
 html[data-theme='dark'] {
@@ -62,6 +64,8 @@ html[data-theme='dark'] {
   --font: #fff;
   --font2: rgba(221, 24, 234, 0.97);
   --font3: rgba(255, 255, 255, 0.97);
+
+  --stars: #fff;
 }
 
 /*GLOBAL CLASSES*/
