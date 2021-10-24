@@ -74,11 +74,13 @@
 
 #ufo2 {
   top: 30%;
+  z-index: -1;
   animation: ufo 2s infinite ease-out;
 }
 
 #ufo3 {
   top: 50%;
+  z-index: -1;
   animation: ufo 5s infinite linear reverse;
 }
 
@@ -132,6 +134,22 @@
   left: 50%;
   top: 50%;
   margin: -150px;
+  transform: scale(0.01);
+  animation: planetScale 5s 1 forwards;
+}
+
+@keyframes planetScale {
+  100%{
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 1024px) {
+  @keyframes planetScale {
+    100%{
+      transform: scale(1.8);
+    }
+  }
 }
 
 .planet .mask {
