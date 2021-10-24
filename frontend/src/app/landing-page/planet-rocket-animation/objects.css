@@ -1,0 +1,124 @@
+.objects {
+  position: absolute;
+  width: 50px;
+  z-index: 11;
+}
+
+/*ROCKETS*/
+#rocket1 {
+  left: 30%;
+  top: 30%;
+  animation: rocketAnimation1 15s infinite linear;
+  transform-origin: 250px 250px;
+}
+
+#rocket2 {
+  right: 20%;
+  bottom: -10%;
+  animation: rocketAnimation2 3s infinite linear;
+  transform: rotate(-20deg);
+}
+
+#rocket3 {
+  left: 20%;
+  bottom: -50px;
+  animation: rocketAnimation3 4s infinite 1s linear;
+  transform: rotate(10deg);
+}
+
+#rocket4 {
+  left: -60px;
+  bottom: 0;
+  transform: rotate(60deg);
+  animation: rocketAnimation4 4s infinite linear;
+}
+
+@keyframes rocketAnimation1 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rocketAnimation2 {
+  100% {
+    transform: translateY(-100vh) translateX(-100px);
+  }
+}
+
+@keyframes rocketAnimation3 {
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+  }
+}
+
+@keyframes rocketAnimation4 {
+  100% {
+    transform: translateY(-100px) translateX(100vw) rotate(80deg);
+  }
+}
+
+
+/*UFO*/
+
+.ufo {
+  left: -30px;
+  transform-origin: 100px 100px;
+}
+
+#ufo1 {
+  top: 20%;
+  animation: ufo 3s infinite linear;
+}
+
+#ufo2 {
+  top: 30%;
+  z-index: 9;
+  animation: ufo 2s infinite ease-out;
+}
+
+#ufo3 {
+  top: 50%;
+  z-index: 9;
+  animation: ufo 5s infinite linear reverse;
+}
+
+@media (min-width: 700px) {
+  .ufo {
+    width: 50px;
+    animation-duration: 20s !important;
+  }
+}
+
+@keyframes ufo {
+  100% {
+    transform: translateX(120vw) rotate(10deg);
+  }
+}
+
+
+/*SATS*/
+#sat1 {
+  left: -50px;
+  bottom: -50px;
+  animation: sat 10s infinite linear;
+}
+
+#sat2 {
+  right: -50px;
+  top: 0;
+  animation: sat2 10s infinite linear;
+  transform-origin: 50vh;
+}
+
+@keyframes sat {
+  100% {
+    transform: translateX(50vw) translateY(-100vh) rotate(720deg); /* translateX(120vw) translateY(-100vh)*/
+  }
+}
+
+@keyframes sat2 {
+  100% {
+    transform: translateX(-50vw) translateY(110vh) rotate(10deg); /* translateX(120vw) translateY(-100vh)*/
+  }
+}
+
