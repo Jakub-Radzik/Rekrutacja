@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LandingAnimationComponent } from './landing-animation.component';
+import {LandingAnimationComponent} from './landing-animation.component';
 
 describe('LandingAnimationComponent', () => {
   let component: LandingAnimationComponent;
