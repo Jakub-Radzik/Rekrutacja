@@ -8,6 +8,7 @@ import {CommonModule} from "@angular/common";
 import {CustomButtonComponent} from './components/custom-button/custom-button.component';
 import {ScrollToTopComponent} from './components/scroll-to-top/scroll-to-top.component';
 import {AppRoutingModule} from "../app-routing.module";
+import {PageNotFoundComponent} from "./views/page-not-found/page-not-found.component";
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {AppRoutingModule} from "../app-routing.module";
     HeaderComponent,
     FooterComponent,
     LoaderComponent,
+    PageNotFoundComponent,
     ThemeSwitchComponent,
     CustomButtonComponent,
     ScrollToTopComponent,
@@ -30,6 +32,7 @@ import {AppRoutingModule} from "../app-routing.module";
     LoaderComponent,
     CustomButtonComponent,
     ScrollToTopComponent,
+    PageNotFoundComponent
   ]
 })
 export class CoreModule {
