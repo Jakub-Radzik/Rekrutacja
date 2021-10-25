@@ -1,6 +1,6 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {Article} from "../common/interfaces/article";
-import {ArticlesService} from "../articles-listing/services/articles.service";
+import {Article} from "../../common/interfaces/article";
+import {ArticlesService} from "../services/articles.service";
 import {ActivatedRoute} from "@angular/router";
 import {faCaretRight} from "@fortawesome/free-solid-svg-icons";
 

@@ -8,12 +8,14 @@ import {AppRoutingModule} from "../app-routing.module";
 import {CoreModule} from "../common/core.module";
 import {ToolsComponent} from './tools/tools.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {SingleArticleComponent} from "./single-article/single-article.component";
 
 @NgModule({
-  declarations: [ArticlesListingComponent, ArticleCardComponent, FavoriteArticleTogglerComponent, ToolsComponent],
+  declarations: [ArticlesListingComponent, ArticleCardComponent, FavoriteArticleTogglerComponent, ToolsComponent, SingleArticleComponent],
   exports: [
     ArticlesListingComponent,
-    FavoriteArticleTogglerComponent
+    FavoriteArticleTogglerComponent,
+    SingleArticleComponent
   ],
   imports: [
     CommonModule,

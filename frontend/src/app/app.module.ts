@@ -8,7 +8,6 @@ import {CoreModule} from "./common/core.module";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AppRoutingModule} from './app-routing.module';
 import {CommonModule} from "@angular/common";
-import {SingleArticleModule} from "./single-article/single-article.module";
 import {PageNotFoundModule} from "./page-not-found/page-not-found.module";
 import {LandingPageModule} from "./landing-page/landing-page.module";
 
@@ -20,7 +19,6 @@ import {LandingPageModule} from "./landing-page/landing-page.module";
     BrowserModule,
     HttpClientModule,
     ArticleListingModule,
-    SingleArticleModule,
     PageNotFoundModule,
     LandingPageModule,
     CommonModule,
