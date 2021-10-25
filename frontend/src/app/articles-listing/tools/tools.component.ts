@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {
   faCaretLeft,
   faCaretRight,
@@ -13,32 +13,34 @@ import {ArticlesService} from "../services/articles.service";
 import {Observable} from "rxjs";
 import {FilterService} from "../services/filter.service";
 import {FavoriteArticlesService} from "../services/favorite-articles.service";
+import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 
 @Component({
   selector: 'app-tools',
   templateUrl: './tools.component.html',
   styleUrls: ['./tools.component.css']
 })
-export class ToolsComponent implements OnInit {
+export class ToolsComponent {
 
-  public icons = {
-    sortASC: faSortAmountUp,
-    sortDESC: faSortAmountDown,
-    caretLeft: faCaretLeft,
-    caretRight: faCaretRight,
-    chevronUp: faChevronUp,
-    undo: faUndo,
-    download: faDownload,
-    heart: faHeart
-  }
   public isMobile: boolean;
   public isPanelHidden: boolean;
   public articlesCount: Observable<number>;
+  public icons: { [id: string]: IconDefinition };
 
   constructor(private articlesService: ArticlesService, private favoritesArticlesService: FavoriteArticlesService, public filterService: FilterService) {
     this.isMobile = window.innerWidth < 1024
     this.isPanelHidden = true;
     this.articlesCount = articlesService.getArticlesCount();
+    this.icons = {
+      sortASC: faSortAmountUp,
+      sortDESC: faSortAmountDown,
+      caretLeft: faCaretLeft,
+      caretRight: faCaretRight,
+      chevronUp: faChevronUp,
+      undo: faUndo,
+      download: faDownload,
+      heart: faHeart
+    };
   }
 
   @HostListener('window:resize', ['$event'])
@@ -47,10 +49,7 @@ export class ToolsComponent implements OnInit {
     this.isPanelHidden = true;
   }
 
-  ngOnInit(): void {
-  }
-
-  public getArticles(favorites: boolean) {
+  public getArticles(favorites: boolean): void {
     this.isPanelHidden = this.isMobile;
     this.filterService.useFavorites = favorites;
     this.filterService.onArticlesRefreshDefaults();
@@ -58,39 +57,39 @@ export class ToolsComponent implements OnInit {
     this.articlesService.getArticles();
   }
 
-  updateFiltersStateAndGetArticles(resetPage: boolean = true) {
+  public updateFiltersStateAndGetArticles(resetPage: boolean = true): void {
     this.updateFiltersState(resetPage);
     this.articlesService.getArticles();
   }
 
-  updateFiltersState(resetPage: boolean = true) {
+  public updateFiltersState(resetPage: boolean = true): void {
     this.filterService.updateFiltersState(resetPage);
   }
 
-  incrementPage(hasArticles: boolean = true) {
-    if(hasArticles){
+  public incrementPage(hasArticles: boolean = true): void {
+    if (hasArticles) {
       this.filterService.incrementPage();
     }
   }
 
-  decrementPage() {
+  public decrementPage(): void {
     this.filterService.decrementPage();
   }
 
-  reset() {
+  public reset(): void {
     this.filterService.reset();
     this.articlesService.getArticles();
   }
 
-  togglePanelVisibility() {
+  public togglePanelVisibility(): void {
     this.isPanelHidden = !this.isPanelHidden;
   }
 
-  hasFavorites() {
+  public hasFavorites(): boolean {
     return this.favoritesArticlesService.hasFavorites();
   }
 
-  hasArticles(){
+  public hasArticles(): boolean {
     return this.articlesService.hasArticles();
   }
 

@@ -24,13 +24,13 @@ import {AppRoutingModule} from "../app-routing.module";
     CommonModule,
     AppRoutingModule
   ],
-    exports: [
-        HeaderComponent,
-        FooterComponent,
-        LoaderComponent,
-        CustomButtonComponent,
-        ScrollToTopComponent,
-    ]
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    LoaderComponent,
+    CustomButtonComponent,
+    ScrollToTopComponent,
+  ]
 })
 export class CoreModule {
 }

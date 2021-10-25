@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ThemeService} from "../../services/theme.service";
+import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 
 @Component({
   selector: 'app-theme-switch',
@@ -7,7 +8,7 @@ import {ThemeService} from "../../services/theme.service";
   styleUrls: ['./theme-switch.component.css']
 })
 export class ThemeSwitchComponent implements OnInit {
-  public icon;
+  public icon: IconDefinition;
 
   constructor(private themeService: ThemeService) {
     this.icon = themeService.getIcon();

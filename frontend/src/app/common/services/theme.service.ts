@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons';
 import {DARK, LIGHT, THEME_LOCAL_STORAGE_KEY} from "../utils/keys";
+import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  private theme;
-  private icon;
+  private theme: string;
+  private icon: IconDefinition;
 
   constructor() {
     this.theme = this.loadTheme()

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {faUndo} from "@fortawesome/free-solid-svg-icons";
+import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 
 @Component({
   selector: 'app-page-not-found',
@@ -8,9 +9,11 @@ import {faUndo} from "@fortawesome/free-solid-svg-icons";
 })
 export class PageNotFoundComponent implements OnInit {
 
-  public faUndo = faUndo;
+  public faUndo: IconDefinition;
 
-  constructor() { }
+  constructor() {
+    this.faUndo = faUndo;
+  }
 
   ngOnInit(): void {
   }
