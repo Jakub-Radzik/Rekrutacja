@@ -20,7 +20,7 @@ export class FilterService {
     })
   }
 
-  public getCurrentStateOfForm() {
+  public getCurrentStateOfForm(): Array<[string, string]> {
     return [
       ['_sort', `${this.searchForm.value.sortBy}:${this.searchForm.value.order}`],
       ['_limit', `${this.searchForm.value.numberOfResults}`],
@@ -32,7 +32,7 @@ export class FilterService {
     return this.createParametersList(this.getCurrentStateOfForm());
   }
 
-  updateFiltersState(resetPage: boolean = true) {
+  public updateFiltersState(resetPage: boolean = true): void {
     if (resetPage) {
       this.resetPage();
     }
@@ -40,43 +40,43 @@ export class FilterService {
     this.saveToStorage();
   }
 
-  incrementPage() {
+  public incrementPage(): void {
     this.searchForm['controls']['page'].setValue(this.searchForm.value.page + 1);
   }
 
-  decrementPage() {
+  public decrementPage(): void {
     const page = this.searchForm.value.page;
     this.searchForm['controls']['page'].setValue(page <= 1 ? 1 : page - 1);
   }
 
-  resetUseFavorites() {
+  public resetUseFavorites(): void {
     this.useFavorites = false;
   }
 
-  resetNumbersOfResults() {
+  public resetNumbersOfResults(): void {
     this.searchForm['controls']['numberOfResults'].setValue(20);
   }
 
-  resetSortBy() {
+  public resetSortBy(): void {
     this.searchForm['controls']['sortBy'].setValue("publishedAt");
   }
 
-  resetOrder() {
+  public resetOrder(): void {
     this.searchForm['controls']['order'].setValue("DESC");
   }
 
-  resetPage() {
+  public resetPage(): void {
     this.searchForm['controls']['page'].setValue(1);
   }
 
 
-  onArticlesRefreshDefaults() {
+  public onArticlesRefreshDefaults(): void {
     this.resetPage();
     this.resetSortBy();
     this.resetOrder();
   }
 
-  reset() {
+  public reset(): void {
     this.resetNumbersOfResults();
     this.resetSortBy();
     this.resetOrder();
@@ -85,7 +85,7 @@ export class FilterService {
     this.saveToStorage();
   }
 
-  saveToStorage() {
+  public saveToStorage(): void {
     sessionStorage.setItem(NUMBER_OF_RESULTS_KEY, this.searchForm.value.numberOfResults);
     sessionStorage.setItem(SORT_BY_KEY, this.searchForm.value.sortBy);
     sessionStorage.setItem(ORDER_KEY, this.searchForm.value.order);
@@ -93,7 +93,7 @@ export class FilterService {
     sessionStorage.setItem(USE_FAVORITES_KEY, JSON.stringify(this.useFavorites));
   }
 
-  private createParametersList(listOfParamPairs: Array<string[]>) {
+  private createParametersList(listOfParamPairs: Array<string[]>): HttpParams {
     let httpParams = new HttpParams();
     listOfParamPairs.forEach(pair => {
       httpParams = httpParams.append(pair[0], pair[1]);

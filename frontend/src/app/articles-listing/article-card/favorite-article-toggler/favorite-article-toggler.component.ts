@@ -24,7 +24,7 @@ export class FavoriteArticleTogglerComponent implements OnInit {
     this.isFavorite = this.favoriteArticlesService.isFavoriteArticle(this.articleId);
   }
 
-  public toggleFavorite() {
+  public toggleFavorite(): void {
     this.isFavorite = this.favoriteArticlesService.toggleFavorite(this.isFavorite, this.articleId);
 
     if (this.filterService.useFavorites) {

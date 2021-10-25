@@ -30,13 +30,13 @@ export class CustomButtonComponent implements OnInit, OnChanges {
     this.toggleClasses(this.isDisabled);
   }
 
-  public callFunction() {
+  public callFunction(): void {
     if (!this.isDisabled) {
       this.callback.emit();
     }
   }
 
-  private toggleClasses(disabled: boolean) {
+  private toggleClasses(disabled: boolean): void {
     disabled ? this.customClasses.push('disabled') : this.customClasses.push('effects');
   }
 }

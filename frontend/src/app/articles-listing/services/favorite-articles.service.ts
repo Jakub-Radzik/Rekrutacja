@@ -29,21 +29,21 @@ export class FavoriteArticlesService {
     return this.favoriteArticlesIDs.getValue().includes(articleId);
   }
 
-  public toggleFavorite(isFavorite: boolean, articleId: number) {
+  public toggleFavorite(isFavorite: boolean, articleId: number): boolean {
     isFavorite ? this.removeArticleFromFavorites(articleId) : this.addArticleToFavorites(articleId);
     return !isFavorite;
   }
 
-  public hasFavorites(){
+  public hasFavorites(): boolean {
     return this.favoriteArticlesIDs.getValue().length > 0;
   }
 
   // localstorage manipulation=========================================
-  private static saveFavoritesToLocalStorage(articlesIDs: number[]) {
+  private static saveFavoritesToLocalStorage(articlesIDs: number[]): void {
     localStorage.setItem(FAVORITES_LOCAL_STORAGE_KEY, JSON.stringify(articlesIDs))
   }
 
-  private static getFavoritesFromLocalStorage() {
+  private static getFavoritesFromLocalStorage(): number[] {
     let data = localStorage.getItem(FAVORITES_LOCAL_STORAGE_KEY);
     return data ? JSON.parse(data) : [];
   }

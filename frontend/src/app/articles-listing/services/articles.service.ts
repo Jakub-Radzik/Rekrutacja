@@ -24,7 +24,7 @@ export class ArticlesService {
     });
   }
 
-  createParametersListFromFavorites() {
+  public createParametersListFromFavorites(): HttpParams {
     let parameters: HttpParams = this.filterService.getParameters();
     if (this.filterService.useFavorites) {
       this.favoriteArticlesIDs.forEach(id => {
