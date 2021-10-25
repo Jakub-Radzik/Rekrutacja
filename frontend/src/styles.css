@@ -16,6 +16,7 @@ a {
 
 body {
   background: var(--main);
+  overflow-x: hidden;
 }
 
 /*SCROLL STYLE*/
