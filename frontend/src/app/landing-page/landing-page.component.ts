@@ -1,18 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {faCaretRight} from "@fortawesome/free-solid-svg-icons";
+import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent {
 
-  public icon = faCaretRight;
+  public icon: IconDefinition;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.icon = faCaretRight;
   }
-
 }

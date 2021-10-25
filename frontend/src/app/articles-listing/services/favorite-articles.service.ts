@@ -7,7 +7,7 @@ import {FAVORITES_LOCAL_STORAGE_KEY} from "../../common/utils/keys";
 })
 export class FavoriteArticlesService {
 
-  public favoriteArticlesIDs: BehaviorSubject<number[]>
+  public favoriteArticlesIDs: BehaviorSubject<number[]>;
 
   constructor() {
     this.favoriteArticlesIDs = new BehaviorSubject<number[]>(FavoriteArticlesService.getFavoritesFromLocalStorage());

@@ -19,7 +19,7 @@ import {FavoriteArticlesService} from "../services/favorite-articles.service";
   templateUrl: './tools.component.html',
   styleUrls: ['./tools.component.css']
 })
-export class ToolsComponent implements OnInit {
+export class ToolsComponent {
 
   public icons = {
     sortASC: faSortAmountUp,
@@ -45,9 +45,6 @@ export class ToolsComponent implements OnInit {
   onResize(event: WindowEventHandlers) {
     this.isMobile = window.innerWidth < 1024;
     this.isPanelHidden = true;
-  }
-
-  ngOnInit(): void {
   }
 
   public getArticles(favorites: boolean) {

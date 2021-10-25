@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-landing-animation',
@@ -15,11 +15,7 @@ import { Component, OnInit } from '@angular/core';
     './parallax/landing-animation-parallax-stars-3.1.css'
   ]
 })
-export class LandingAnimationComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class LandingAnimationComponent {
+  constructor() {
   }
-
 }

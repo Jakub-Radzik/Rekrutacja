@@ -3,6 +3,7 @@ import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import {ArticlesService} from "../../services/articles.service";
 import {FavoriteArticlesService} from "../../services/favorite-articles.service";
 import {FilterService} from "../../services/filter.service";
+import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 
 @Component({
   selector: 'app-favorite-article-toggler',
@@ -10,12 +11,13 @@ import {FilterService} from "../../services/filter.service";
   styleUrls: ['./favorite-article-toggler.component.css']
 })
 export class FavoriteArticleTogglerComponent implements OnInit {
-  public faHeart = faHeart;
 
   @Input() articleId!: number;
+  public faHeart: IconDefinition;
   public isFavorite!: boolean;
 
   constructor(private articleService: ArticlesService, private favoriteArticlesService: FavoriteArticlesService, private filterService: FilterService) {
+    this.faHeart = faHeart;
   }
 
   ngOnInit(): void {

@@ -10,13 +10,16 @@ import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 export class CustomButtonComponent implements OnInit, OnChanges {
 
   @Input() text!: string;
-  @Input() customClasses: string[] = [];
-  @Input() icon: IconDefinition = faHeart;
-  @Input() isDisabled: boolean = false;
-  @Output() callback = new EventEmitter<any>();
-
+  @Input() customClasses: string[];
+  @Input() icon: IconDefinition;
+  @Input() isDisabled: boolean;
+  @Output() callback: EventEmitter<any>;
 
   constructor() {
+    this.customClasses = [];
+    this.icon = faHeart;
+    this.isDisabled = false;
+    this.callback = new EventEmitter<any>();
   }
 
   ngOnInit(): void {
@@ -27,14 +30,13 @@ export class CustomButtonComponent implements OnInit, OnChanges {
     this.toggleClasses(this.isDisabled);
   }
 
-  private toggleClasses(disabled: boolean) {
-    disabled ? this.customClasses.push('disabled') : this.customClasses.push('effects');
-  }
-
-  callFunction() {
+  public callFunction() {
     if (!this.isDisabled) {
       this.callback.emit();
     }
   }
 
+  private toggleClasses(disabled: boolean) {
+    disabled ? this.customClasses.push('disabled') : this.customClasses.push('effects');
+  }
 }

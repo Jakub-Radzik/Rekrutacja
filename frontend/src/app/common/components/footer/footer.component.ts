@@ -1,18 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {faCaretRight} from "@fortawesome/free-solid-svg-icons";
+import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
-  public icon = faCaretRight;
+  public icon: IconDefinition;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.icon = faCaretRight;
   }
-
 }

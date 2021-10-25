@@ -3,6 +3,7 @@ import {Article} from "../../common/interfaces/article";
 import {ArticlesService} from "../services/articles.service";
 import {ActivatedRoute} from "@angular/router";
 import {faCaretRight} from "@fortawesome/free-solid-svg-icons";
+import {IconDefinition} from "@fortawesome/fontawesome-common-types";
 
 @Component({
   selector: 'app-single-article',
@@ -11,13 +12,16 @@ import {faCaretRight} from "@fortawesome/free-solid-svg-icons";
 })
 export class SingleArticleComponent implements AfterViewInit {
 
-  public faCaretRight = faCaretRight;
+  public faCaretRight: IconDefinition;
 
   public article!: Article;
   public date!: Date;
-  public isContentReadyToShow = false;
+  public isContentReadyToShow: boolean;
 
   constructor(private route: ActivatedRoute, private articleService: ArticlesService) {
+    this.faCaretRight = faCaretRight;
+    this.isContentReadyToShow = false;
+
     route.params.subscribe(params => {
       this.articleService.getArticle(params['id']).subscribe(response => {
         this.article = response;
